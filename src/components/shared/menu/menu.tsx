@@ -1,10 +1,11 @@
 import React from "react";
+import './menu.scss';
 
 const Menu: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-sm bg-light navbar-light">
       <a className="navbar-brand" href="#">
-        Navbar
+        <strong>Windo.shop</strong>
       </a>
       <button
         className="navbar-toggler"
@@ -21,22 +22,30 @@ const Menu: React.FC = () => {
         <ul className="navbar-nav">
           <li className="nav-item active">
             <a className="nav-link" href="#">
-              Home <span className="sr-only">(current)</span>
+              <i className="fa fa-home"></i><strong>Trang chủ </strong><span className="sr-only">(current)</span>
+            </a>
+          </li>
+          <li className="navitem">
+
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="trangphuc">
+              <strong>Trang phục</strong>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Features
+            <a className="nav-link" href="tuisach">
+              <strong>Túi sách</strong>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Pricing
+            <a className="nav-link" href="giaydep">
+              <strong>Giày dép</strong>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" href="#" aria-disabled="true">
-              Disabled
+            <a className="nav-link" href="phukien">
+              <strong>Phụ kiện</strong>
             </a>
           </li>
         </ul>
