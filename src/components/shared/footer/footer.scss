@@ -1,3 +1,40 @@
-footer {
-    .col-md-3 {}
+.footer {
+	padding: 50px 0 20px 0;
+	background-color: #090c14;
+	color: #878c94;
+	margin-top: 20px;
+
+	.row {
+		.col-sm-3 {
+			.title {
+				text-align: left;
+				color: #fff;
+				font-size: 25px;
+			}
+
+			.social-icon {
+				padding: 0px;
+				margin: 0px;
+
+				a {
+					display: inline-block;
+					color: #fff;
+					font-size: 25px;
+					padding: 5px;
+				}
+			}
+
+			.account-icon {
+				a {
+					display: block;
+					color: #fff;
+					padding: 5px;
+
+					.fa {
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+	}
 }
