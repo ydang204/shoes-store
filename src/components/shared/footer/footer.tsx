@@ -25,28 +25,22 @@ const Footer: React.FC = () => {
               <a href="#" className="social">
                 <i className="fa fa-youtube-play" aria-hidden="true"></i>
               </a>
-              <a href="#" className="social">
-                <i className="fa fa-google" aria-hidden="true"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fa fa-dribbble" aria-hidden="true"></i>
-              </a>
             </ul>
           </div>
           <div className="col-sm-3">
             <h4 className="title">Danh mục</h4>
             <span className="account-icon">
               <a href="#">
-                <i className="fa fa-heart" aria-hidden="true"></i> Trang phục
+                Trang phục
               </a>
               <a href="#">
-                <i className="fa fa-users" aria-hidden="true"></i>Túi xách
+                Túi xách
               </a>
               <a href="#">
-                <i className="fa fa-user" aria-hidden="true"></i> Giày dép
+                Giày dép
               </a>
               <a href="#">
-                <i className="fa fa-globe" aria-hidden="true"></i> Phụ kiện
+                 Phụ kiện
               </a>
             </span>
           </div>
@@ -54,15 +48,13 @@ const Footer: React.FC = () => {
             <h4 className="title">Về chúng tôi</h4>
             <span className="account-icon">
               <a href="#">
-                <i className="fa fa-heart" aria-hidden="true"></i>Thông tin công
-                ty
+                Thông tin công ty
               </a>
               <a href="#">
-                <i className="fa fa-users" aria-hidden="true"></i>Thông tin liên
-                hệ
+                Thông tin liên hệ
               </a>
               <a href="#">
-                <i className="fa fa-user" aria-hidden="true"></i> Đăng ký
+                Đăng ký
               </a>
             </span>
           </div>
@@ -70,19 +62,16 @@ const Footer: React.FC = () => {
             <h4 className="title">Hỗ trợ</h4>
             <span className="account-icon">
               <a href="#">
-                <i className="fa fa-heart" aria-hidden="true"></i>Điều khoản
-                hoạt động
+                Điều khoản hoạt động
               </a>
               <a href="#">
-                <i className="fa fa-users" aria-hidden="true"></i>Chính sách
+                Chính sách
               </a>
               <a href="#">
-                <i className="fa fa-user" aria-hidden="true"></i> Những câu hỏi
-                thường gặp
+                Những câu hỏi thường gặp
               </a>
               <a href="#">
-                <i className="fa fa-globe" aria-hidden="true"></i>Hướng dẫn mua
-                hàng
+                Hướng dẫn mua hàng
               </a>
             </span>
           </div>
