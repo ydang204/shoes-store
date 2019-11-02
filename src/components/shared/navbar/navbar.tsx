@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-import './home.scss';
+import './navbar.scss';
 
 type Props = {};
 
 type States = {};
 
-class Home extends React.Component<Props, States> {
+class NavBar extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
   }
 
   render() {
-    return <p>Home works!</p>;
+    return <p>Navbar work!</p>;
   }
 }
 
-export default Home;
+export default NavBar;

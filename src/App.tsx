@@ -1,17 +1,21 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
+
 import './App.scss';
-import Landing from './components/pages/landing/landing';
-import Sample from './components/pages/sample/sample';
-import Footer from './components/shared/footer/footer';
-import Menu from './components/shared/menu/menu';
+import RouteLayout from './components/shared/layout/route-layout';
+import Home from './components/pages/home/home';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Menu />
-      <Landing></Landing>
-      <Sample></Sample>
-      <Footer />
+      <BrowserRouter>
+        <Switch>
+          <Route>
+            <RouteLayout exact path="/" component={Home} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
