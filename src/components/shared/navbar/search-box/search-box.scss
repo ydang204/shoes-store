@@ -1,0 +1,41 @@
+.search-container {
+    display: inline-flex;
+    flex: 1;
+
+    .search-box {
+        display: inline-flex;
+        flex: 1 1 170px;
+        border-radius: 50px;
+        overflow: hidden;
+        background-color: #f1f1f1;
+        position: inherit;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 748px;
+
+        .fa-search {
+            margin: auto;
+            margin-left: 1rem;
+            color: grey;
+        }
+
+
+        .rbt.clearfix {
+            width: 100%;
+            background-color: #f1f1f1;
+
+            .rbt-input-hint-container {
+                input {
+                    border: none !important;
+                    background-color: #f1f1f1;
+                }
+
+                input:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+
+}

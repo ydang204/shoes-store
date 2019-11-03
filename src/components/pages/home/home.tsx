@@ -12,7 +12,11 @@ class Home extends React.Component<Props, States> {
   }
 
   render() {
-    return <p>Home works!</p>;
+    return (
+      <div className="container home-container">
+        <div className="row">Home works!</div>
+      </div>
+    );
   }
 }
 

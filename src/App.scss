@@ -1,6 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap&subset=vietnamese");
 
 body {
-    font-family: Roboto;
+    font-family: 'Montserrat Regular', sans-serif;
     font-size: 16px;
+
+    main {
+        margin-top: 112px;
+        padding-bottom: 50px;
+        background-color: #ebebeb;
+    }
 }

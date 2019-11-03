@@ -1,0 +1,19 @@
+.navbar-container {
+    height: 112px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(204, 204, 204, .22);
+    padding: 0;
+    z-index: 1002;
+
+    .navbar-row {
+        border-bottom: 1px solid #f1f1f1;
+
+        .navbar.navbar-light {
+            width: 1140px;
+            margin: auto;
+            background-color: #FFF !important;
+        }
+    }
+
+   
+}
