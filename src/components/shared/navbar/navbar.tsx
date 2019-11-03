@@ -12,10 +12,13 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 import './navbar.scss';
 import SearchBox from './search-box/search-box';
 import MenuNav from './menu-nav/menu-nav';
+import { Link } from 'react-router-dom';
 
 type Props = {};
 
@@ -50,14 +53,13 @@ class NavBar extends Component<Props, States> {
                   <NavLink href="/components/">Components</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">
-                    GitHub
-                  </NavLink>
+                  <Link to="/login">
+                    <FontAwesomeIcon icon={faUser} />
+                  </Link>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav>Account</DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>Sign in</DropdownItem>
                     <DropdownItem>My Profile</DropdownItem>
                     <DropdownItem>Log out</DropdownItem>
                   </DropdownMenu>

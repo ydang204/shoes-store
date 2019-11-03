@@ -10,7 +10,7 @@ class Login extends Component<Props, States> {
   }
 
   render() {
-    return <p>Home works!</p>;
+    return <p>Login works!</p>;
   }
 }
 
