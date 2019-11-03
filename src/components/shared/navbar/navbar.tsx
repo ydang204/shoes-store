@@ -15,6 +15,7 @@ import {
 
 import './navbar.scss';
 import SearchBox from './search-box/search-box';
+import MenuNav from './menu-nav/menu-nav';
 
 type Props = {};
 
@@ -54,9 +55,7 @@ class NavBar extends Component<Props, States> {
                   </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Account
-                  </DropdownToggle>
+                  <DropdownToggle nav>Account</DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>Sign in</DropdownItem>
                     <DropdownItem>My Profile</DropdownItem>
@@ -67,20 +66,7 @@ class NavBar extends Component<Props, States> {
             </Collapse>
           </Navbar>
         </div>
-        <div className="menu-row">
-          <a href="" className="menu-item">
-            Home
-          </a>
-          <a href="" className="menu-item">
-            Home
-          </a>
-          <a href="" className="menu-item">
-            Home
-          </a>
-          <a href="" className="menu-item">
-            Home
-          </a>
-        </div>
+        <MenuNav />
       </div>
     );
   }
