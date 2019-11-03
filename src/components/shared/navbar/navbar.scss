@@ -12,8 +12,17 @@
             width: 1140px;
             margin: auto;
             background-color: #FFF !important;
+
+            .ml-auto.navbar-nav {
+                .nav-item {
+                    .fa-user {
+                        margin-top: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 
-   
+
 }
