@@ -14,6 +14,7 @@ import {
 } from 'reactstrap';
 
 import './navbar.scss';
+import SearchBox from './search-box/search-box';
 
 type Props = {};
 
@@ -42,6 +43,7 @@ class NavBar extends Component<Props, States> {
             <NavbarBrand href="/">Shoes Store</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
+              <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink href="/components/">Components</NavLink>
@@ -64,6 +66,20 @@ class NavBar extends Component<Props, States> {
               </Nav>
             </Collapse>
           </Navbar>
+        </div>
+        <div className="menu-row">
+          <a href="" className="menu-item">
+            Home
+          </a>
+          <a href="" className="menu-item">
+            Home
+          </a>
+          <a href="" className="menu-item">
+            Home
+          </a>
+          <a href="" className="menu-item">
+            Home
+          </a>
         </div>
       </div>
     );
