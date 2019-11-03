@@ -1,5 +1,15 @@
 import React from 'react';
 import './footer.scss';
+import {
+  Media
+
+} from 'reactstrap';
+import logof from '../../image/logof.png';
+
+var imgStyle = {
+  maxWidth: "220px",
+  margin: "-20px",
+};
 
 const Footer: React.FC = () => {
   return (
@@ -7,11 +17,8 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-3">
-            <h4 className="title">About us</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              suscipit, libero a molestie consectetur, sapien elit lacinia mi.
-            </p>
+            <Media style={imgStyle} object src={logof} alt="Shoes Store"/>
+            
             <ul className="social-icon">
               <a href="#" className="social">
                 <i className="fa fa-facebook" aria-hidden="true"></i>
