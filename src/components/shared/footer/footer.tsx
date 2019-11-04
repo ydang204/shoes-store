@@ -4,7 +4,7 @@ import {
   Media
 
 } from 'reactstrap';
-import logof from '../../image/logof.png';
+import logof from '../../image/logof2.png';
 
 var imgStyle = {
   maxWidth: "220px",

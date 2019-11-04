@@ -20,12 +20,18 @@ import './navbar.scss';
 import SearchBox from './search-box/search-box';
 import MenuNav from './menu-nav/menu-nav';
 import { Link } from 'react-router-dom';
-import logo1 from '../../image/logo1.png';
+import logo1 from '../../image/logo.png';
 
 type Props = {};
 
 type States = {
   isOpen: boolean;
+};
+
+var imgStyle = {
+  maxWidth: "175px",
+  maxheight: "30px",
+  cursor: "pointer",
 };
 
 class NavBar extends Component<Props, States> {
@@ -46,12 +52,8 @@ class NavBar extends Component<Props, States> {
       <div className="navbar-container fixed-top">
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
-            {/* <NavbarBrand href="/">Shoes Store</NavbarBrand> */}
-            {/* <Card>
-              <CardImg src="image/logo1.png" alt="Shoes Store" />
-            </Card> */}
             <Media left top href="#">
-                <Media object src={logo1} alt="Shoes Store"/>
+                <Media style={imgStyle} object src={logo1} alt="Shoes Store"/>
             </Media>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
