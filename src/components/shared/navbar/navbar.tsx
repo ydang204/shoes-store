@@ -72,7 +72,7 @@ class NavBar extends Component<Props, States> {
                 <NavItem>
                   <Link to="/cart">
                     <i className="fa fa-shopping-cart"></i>
-                    <span>( 0 )</span>
+                    <span className="badge badge-info">0</span>
                   </Link>
                 </NavItem>
               </Nav>
