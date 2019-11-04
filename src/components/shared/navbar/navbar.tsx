@@ -10,7 +10,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Media,
 
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +19,7 @@ import './navbar.scss';
 import SearchBox from './search-box/search-box';
 import MenuNav from './menu-nav/menu-nav';
 import { Link } from 'react-router-dom';
-import logo1 from '../../image/logo.png';
+import logo from '../../image/logo.png';
 
 type Props = {};
 
@@ -31,12 +30,6 @@ var margin = {
   marginLeft:'55px',
   marginRight:'10px',
 }
-
-var imgStyle = {
-  maxWidth: "175px",
-  maxheight: "30px",
-  cursor: "pointer",
-};
 
 class NavBar extends Component<Props, States> {
   constructor(props: Props) {
@@ -56,9 +49,7 @@ class NavBar extends Component<Props, States> {
       <div className="navbar-container fixed-top">
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
-            <Media left top href="#">
-                <Media style={imgStyle} object src={logo1} alt="Shoes Store"/>
-            </Media>
+            <img className="logo" src={logo} alt="Shoes Store"/>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <SearchBox />

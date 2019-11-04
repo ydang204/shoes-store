@@ -8,6 +8,12 @@
     .navbar-row {
         border-bottom: 1px solid #f1f1f1;
 
+        .logo {
+            width: 175px;
+            height: 30px;
+            cursor: pointer;
+        }
+
         .navbar.navbar-light {
             width: 1140px;
             margin: auto;
