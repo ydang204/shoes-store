@@ -26,6 +26,10 @@ type Props = {};
 type States = {
   isOpen: boolean;
 };
+var margin = {
+  marginLeft:'55px',
+  marginRight:'10px',
+}
 
 class NavBar extends Component<Props, States> {
   constructor(props: Props) {
@@ -51,7 +55,7 @@ class NavBar extends Component<Props, States> {
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
+                 <button className="btn btn-warning" type="button"> Kết nối  |  Đăng nhập </button>
                 </NavItem>
                 <NavItem>
                   <Link to="/login">
@@ -59,10 +63,10 @@ class NavBar extends Component<Props, States> {
                   </Link>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav>Account</DropdownToggle>
+                  <DropdownToggle nav>Tài khoản</DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem>Log out</DropdownItem>
+                    <DropdownItem>Đăng nhập</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
