@@ -1,15 +1,6 @@
 import React from 'react';
 import './footer.scss';
-import {
-  Media
-
-} from 'reactstrap';
-import logof from '../../image/logof2.png';
-
-var imgStyle = {
-  maxWidth: "220px",
-  margin: "-20px",
-};
+import logof from '../../image/logofooter.png';
 
 const Footer: React.FC = () => {
   return (
@@ -17,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-3">
-            <Media style={imgStyle} object src={logof} alt="Shoes Store"/>
+            <img className="logofooter" src={logof} alt="Shoes Store"/>
             
             <ul className="social-icon">
               <a href="#" className="social">
