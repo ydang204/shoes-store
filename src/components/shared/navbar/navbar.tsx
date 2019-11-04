@@ -75,9 +75,15 @@ class NavBar extends Component<Props, States> {
                   <DropdownToggle nav>Tài khoản</DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem>Đăng nhập</DropdownItem>
+                    <DropdownItem>Đăng xuất</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
+                <NavItem>
+                  <Link to="/cart">
+                    <i className="fa fa-shopping-cart"></i>
+                    <span>( 0 )</span>
+                  </Link>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
