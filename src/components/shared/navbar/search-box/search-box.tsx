@@ -31,7 +31,7 @@ class SearchBox extends React.Component<Props, States> {
           <Typeahead
             //   labelKey="name"
             options={this.state.data}
-            placeholder="Search for products..."
+            placeholder="Tìm kiếm sản phẩm, shop....."
           />
         </div>
       </Nav>

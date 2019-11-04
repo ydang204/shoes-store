@@ -3,14 +3,15 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Media,
+
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -19,11 +20,22 @@ import './navbar.scss';
 import SearchBox from './search-box/search-box';
 import MenuNav from './menu-nav/menu-nav';
 import { Link } from 'react-router-dom';
+import logo1 from '../../image/logo.png';
 
 type Props = {};
 
 type States = {
   isOpen: boolean;
+};
+var margin = {
+  marginLeft:'55px',
+  marginRight:'10px',
+}
+
+var imgStyle = {
+  maxWidth: "175px",
+  maxheight: "30px",
+  cursor: "pointer",
 };
 
 class NavBar extends Component<Props, States> {
@@ -44,13 +56,15 @@ class NavBar extends Component<Props, States> {
       <div className="navbar-container fixed-top">
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Shoes Store</NavbarBrand>
+            <Media left top href="#">
+                <Media style={imgStyle} object src={logo1} alt="Shoes Store"/>
+            </Media>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
+                 <button className="btn btn-warning" type="button"> Kết nối  |  Đăng nhập </button>
                 </NavItem>
                 <NavItem>
                   <Link to="/login">
@@ -58,10 +72,10 @@ class NavBar extends Component<Props, States> {
                   </Link>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav>Account</DropdownToggle>
+                  <DropdownToggle nav>Tài khoản</DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem>Log out</DropdownItem>
+                    <DropdownItem>Đăng nhập</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>

@@ -8,16 +8,19 @@ const MenuNav: React.FC<Props> = props => {
   return (
     <div className="menu-nav">
       <a href="" className="menu-item">
-        Home
+        <i className="fa fa-home"></i>Trang chủ
       </a>
       <a href="" className="menu-item">
-        Home
+        Trang phục
       </a>
       <a href="" className="menu-item">
-        Home
+        Túi xách
       </a>
       <a href="" className="menu-item">
-        Home
+        Giày dép
+      </a>
+      <a href="" className="menu-item">
+        Phụ kiện
       </a>
     </div>
   );
