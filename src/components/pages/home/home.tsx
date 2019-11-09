@@ -28,13 +28,19 @@ class Home extends React.Component<Props, States> {
                         <li><a href="" className="fa fa-shopping-cart" title="Mua hàng"></a></li>
                     </ul>
                     <span className="product-new-label">
-                      <a href=""><i className="fa fa-heart-o"></i></a>
+                      <a href=""><i className="fa fa-heart-o"> 1</i></a>
                     </span>
                 </div>
                 <div className="product-content">
-                    <h3 className="title"><a href="#">Men's Blazer</a></h3>
-                    <div className="price">$15.00
-                    </div>
+                  <div className="title">
+                    <h5><a href="#"> KINH MAT NU AH13</a></h5>
+                    <p>100,000đ</p>
+                  </div>
+                  <div>
+                    <button type="button" className="btn btn-outline-warning">
+                      LIÊN HỆ
+                    </button>
+                  </div>
                 </div>
             </div>
         </div>
