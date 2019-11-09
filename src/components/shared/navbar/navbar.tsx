@@ -20,11 +20,15 @@ import MenuNav from "./menu-nav/menu-nav";
 import { Link } from "react-router-dom";
 import logo from "../../image/logo.png";
 import Login from "../../pages/auth/login/login";
+import { faSleigh } from "@fortawesome/free-solid-svg-icons";
+import Register from "../../pages/auth/register/register";
 
 type Props = {};
 
 type States = {
-  isOpen: boolean;
+  isOpenNavbar: boolean;
+  isOpenLoginModal: boolean;
+  isOpenRegisterModal: boolean;
 };
 
 class NavBar extends Component<Props, States> {
@@ -32,12 +36,25 @@ class NavBar extends Component<Props, States> {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpenNavbar: false,
+      isOpenLoginModal: false,
+      isOpenRegisterModal: false
     };
   }
 
-  toggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  toggleNavbar = () => {
+    this.setState({ isOpenNavbar: !this.state.isOpenNavbar });
+  };
+
+  toggleLoginModal = () => {
+    this.setState({ isOpenLoginModal: !this.state.isOpenLoginModal });
+  };
+
+  toggleResgisterModal = () => {
+    this.setState({
+      isOpenLoginModal: false,
+      isOpenRegisterModal: !this.state.isOpenRegisterModal
+    });
   };
 
   render() {
@@ -46,19 +63,26 @@ class NavBar extends Component<Props, States> {
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
             <img className="logo" src={logo} alt="Shoes Store" />
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
+            <NavbarToggler onClick={this.toggleNavbar} />
+            <Collapse isOpen={this.state.isOpenNavbar} navbar>
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <button
                     className="btn btn-login"
-                    data-toggle="modal"
-                    data-target="#myModal"
+                    onClick={this.toggleLoginModal}
                   >
                     Kết nối | Đăng nhập
                   </button>
-                  <Login></Login>
+                  <Login
+                    isOpen={this.state.isOpenLoginModal}
+                    toggleModal={this.toggleLoginModal}
+                    toggleRegisterModel={this.toggleResgisterModal}
+                  />
+                  <Register
+                    isOpen={this.state.isOpenRegisterModal}
+                    toggleModal={this.toggleResgisterModal}
+                  />
                 </NavItem>
                 <NavItem>
                   <Link to="/login">
@@ -68,8 +92,8 @@ class NavBar extends Component<Props, States> {
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav>Tài khoản</DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem>Đăng ký</DropdownItem>
+                    <DropdownItem>Tài khoản của tôi</DropdownItem>
+                    <DropdownItem>Đăng xuất</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
