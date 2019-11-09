@@ -12,7 +12,11 @@ class Register extends Component<Props, States> {
   }
 
   render() {
-    return <p>Register works!</p>;
+    return(
+      <div className="container">
+        Đăng ký
+      </div>
+    );
   }
 }
 

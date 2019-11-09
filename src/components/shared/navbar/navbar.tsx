@@ -20,6 +20,7 @@ import SearchBox from './search-box/search-box';
 import MenuNav from './menu-nav/menu-nav';
 import { Link } from 'react-router-dom';
 import logo from '../../image/logo.png';
+import Login from '../../pages/auth/login/login';
 
 type Props = {};
 
@@ -30,7 +31,6 @@ var margin = {
   marginLeft:'55px',
   marginRight:'10px',
 }
-
 class NavBar extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
@@ -55,7 +55,7 @@ class NavBar extends Component<Props, States> {
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                 <button className="btn btn-warning" type="button"> Kết nối  |  Đăng nhập </button>
+                      <button className="btn btn-warning"  data-toggle="modal" data-target="#myModal">Kết nối  |  Đăng nhập </button> <Login></Login>      
                 </NavItem>
                 <NavItem>
                   <Link to="/login">
@@ -66,7 +66,7 @@ class NavBar extends Component<Props, States> {
                   <DropdownToggle nav>Tài khoản</DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>My Profile</DropdownItem>
-                    <DropdownItem>Đăng xuất</DropdownItem>
+                    <DropdownItem>Đăng ký</DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <NavItem>
