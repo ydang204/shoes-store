@@ -1,12 +1,21 @@
 .menu-nav {
-    width: 1240px;
-    margin:15px 0px 0px 150px;
-    a{
-        color: black;
-        font-size: 20px;
-        margin-left: 4%;
+    height: 56px;
+    padding: calc((56px - 38px) /2);
+    width: 1140px;
+    margin: auto;
+
+    .menu-item {
+        color: #7c7c7c;
+        font-weight: 500;
     }
-    a:hover{
-        color: black;
+
+    .menu-item:hover {
+        color: #7c7c7c;
+        outline: none !important;
+    }
+
+    .menu-nav:focus {
+        outline: none !important;
+        box-shadow: none !important;
     }
 }

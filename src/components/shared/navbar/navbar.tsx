@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Collapse,
   Navbar,
@@ -9,28 +9,24 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
+  DropdownItem
+} from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
-} from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
-
-import './navbar.scss';
-import SearchBox from './search-box/search-box';
-import MenuNav from './menu-nav/menu-nav';
-import { Link } from 'react-router-dom';
-import logo from '../../image/logo.png';
-import Login from '../../pages/auth/login/login';
+import "./navbar.scss";
+import SearchBox from "./search-box/search-box";
+import MenuNav from "./menu-nav/menu-nav";
+import { Link } from "react-router-dom";
+import logo from "../../image/logo.png";
+import Login from "../../pages/auth/login/login";
 
 type Props = {};
 
 type States = {
   isOpen: boolean;
 };
-var margin = {
-  marginLeft:'55px',
-  marginRight:'10px',
-}
+
 class NavBar extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
@@ -49,13 +45,20 @@ class NavBar extends Component<Props, States> {
       <div className="navbar-container fixed-top">
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
-            <img className="logo" src={logo} alt="Shoes Store"/>
+            <img className="logo" src={logo} alt="Shoes Store" />
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                      <button className="btn btn-warning"  data-toggle="modal" data-target="#myModal">Kết nối  |  Đăng nhập </button> <Login></Login>      
+                  <button
+                    className="btn btn-login"
+                    data-toggle="modal"
+                    data-target="#myModal"
+                  >
+                    Kết nối | Đăng nhập
+                  </button>
+                  <Login></Login>
                 </NavItem>
                 <NavItem>
                   <Link to="/login">
