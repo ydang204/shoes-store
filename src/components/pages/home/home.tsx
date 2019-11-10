@@ -34,11 +34,10 @@ class Home extends React.Component<Props, States> {
                 <div className="product-content">
                   <div className="title">
                     <h5><a href="#"> KINH MAT NU AH13</a></h5>
-                    <p>100,000đ</p>
                   </div>
                   <div>
                     <button type="button" className="btn btn-outline-warning">
-                      LIÊN HỆ
+                      100K
                     </button>
                   </div>
                 </div>
