@@ -7,7 +7,7 @@ body {
     main {
         margin-top: 112px;
         padding-bottom: 50px;
-        min-height: 500px;
+        min-height: calc(100vh - 112px - 244px);
         background-color: #ebebeb;
     }
 }
