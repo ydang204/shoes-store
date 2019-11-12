@@ -1,68 +1,76 @@
-﻿import React, { Component } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router';
-import './search.scss';
+﻿import React, { Component } from "react";
+import { withRouter, RouteComponentProps } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
+import { compose } from "recompose";
 
+import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
+import "./search.scss";
+import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
 interface Props extends RouteComponentProps {
-    hasResult: boolean;
-    query: string
-};
+  hasResult: boolean;
+  query: string;
+}
 
 type States = {
-    queryTag: string;
+  queryTag: string;
 };
 
 class Search extends Component<Props, States> {
-    
   constructor(props: Props) {
-      super(props);
+    super(props);
 
-      this.state = {
-          queryTag: ''
-      };
-      
+    this.state = {
+      queryTag: ""
+    };
+  }
+
+  componentDidMount() {
+    let param = this.props.history.location.state;
+    this.setState({ queryTag: param.query });
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: any) {
+    let param = this.props.history.location.state;
+    if (param.query != prevState.queryTag) {
+      this.setState({ queryTag: param.query });
     }
+  }
 
-
-    componentDidMount() {
-        let param = this.props.history.location.state
-        this.setState({queryTag: param.query});
-    }
-
-    componentDidUpdate(prevProps: Props, prevState: any){
-        let param = this.props.history.location.state;
-        if(param.query != prevState.queryTag){
-            this.setState({queryTag: param.query});
-        }
-    }
-
-    render() {
-
-        let result = null;
-        if (!this.props.hasResult) {
-            result = <p className="text-center">Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
-        }
-
-      return (
-          <main className="parent-container">
-              <div className="sub-container">
-                  <div className="wrapper">
-                      <div className="header">
-                          <button className="btn hash-tag">
-                              <span>{this.state.queryTag}</span>
-                              <FontAwesomeIcon icon={faWindowClose} />
-                          </button>
-                      </div>
-                      <div className="content">
-                          {result}
-                          <div className="grid-container"></div>
-                      </div>
-                  </div>
-              </div>
-          </main>
+  render() {
+    let result = null;
+    if (!this.props.hasResult) {
+      result = (
+        <p className="text-center">
+          Xin lỗi, chúng tôi không thể tìm thấy sản phẩm
+        </p>
       );
+    }
+
+    return (
+      <main className="parent-container">
+        <div className="sub-container">
+          <div className="wrapper">
+            <div className="header">
+              <button className="btn hash-tag">
+                <span>{this.state.queryTag}</span>
+                <FontAwesomeIcon icon={faWindowClose} />
+              </button>
+            </div>
+            <div className="content">
+              {result}
+              <div className="grid-container"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
   }
 }
 
-export default withRouter(Search);
+const breadcrumbItems: BreadcrumbItem[] = [{ name: "Tìm kiếm" }];
+
+export default compose<Props, {}>(
+  withRouter,
+  withBreadcrumb(breadcrumbItems)
+)(Search);
