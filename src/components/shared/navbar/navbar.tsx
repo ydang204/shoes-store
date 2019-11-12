@@ -62,7 +62,9 @@ class NavBar extends Component<Props, States> {
       <div className="navbar-container fixed-top">
         <div className="row navbar-row">
           <Navbar color="light" light expand="md">
-            <img className="logo" src={logo} alt="Shoes Store" />
+            <Link to="/">
+              <img className="logo" src={logo} alt="Shoes Store" />
+            </Link>
             <NavbarToggler onClick={this.toggleNavbar} />
             <Collapse isOpen={this.state.isOpenNavbar} navbar>
               <SearchBox />
