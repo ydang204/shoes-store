@@ -7,8 +7,7 @@ interface Props {}
 const ProductItem: React.FC<Props> = props => {
   return (
     <div className="product-item">
-      <div className="product-grid7">
-        <div className="product-image7">
+        <div className="product-image">
           <a href="#">
             <img
               className="pic-1"
@@ -21,9 +20,6 @@ const ProductItem: React.FC<Props> = props => {
           </a>
           <ul className="social">
             <li>
-              <a href="" className="fa fa-search"></a>
-            </li>
-            <li>
               <a
                 href=""
                 className="fa fa-shopping-bag"
@@ -34,9 +30,9 @@ const ProductItem: React.FC<Props> = props => {
               <a href="" className="fa fa-shopping-cart" title="Mua hàng"></a>
             </li>
           </ul>
-          <span className="product-new-label">
+          <span className="product-like">
             <a href="">
-              <i className="fa fa-heart-o"> 1</i>
+              <i className="fa fa-heart" title="yêu thích"> 1</i>
             </a>
           </span>
         </div>
@@ -45,15 +41,13 @@ const ProductItem: React.FC<Props> = props => {
             <h5>
               <a href="#"> KINH MAT NU AH13</a>
             </h5>
-            <p>100,000đ</p>
           </div>
           <div>
             <button type="button" className="btn btn-outline-warning">
-              LIÊN HỆ
+              100K
             </button>
           </div>
         </div>
-      </div>
     </div>
   );
 };
