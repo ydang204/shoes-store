@@ -11,16 +11,39 @@ const Register: React.FC<Props> = props => {
   return (
     <div>
       <Modal isOpen={isOpen} toggle={toggleModal} className={className}>
-        <ModalHeader toggle={toggleModal}>Register modal</ModalHeader>
+        <ModalHeader toggle={toggleModal}>Đăng ký thông tin</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-          <p onClick={toggleRegisterModel}>Đăng ký tài khoản</p>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="form-group">
+                  <label htmlFor="fname">Tên đăng nhập/ Email:</label>
+                  <input type="text" className="form-control mt-2" placeholder="Tên đăng nhập/ Email" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Mật khẩu:</label>
+                  <input type="password" className="form-control mt-2" placeholder="Mật khẩu" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="username">Họ và tên:</label>
+                  <input type="text" className="form-control mt-2" placeholder="Họ và tên" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="address">Địa chỉ:</label>
+                  <input type="text" className="form-control mt-2" placeholder="Địa chỉ" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="Email">Email:</label>
+                  <input type="email" className="form-control mt-2" placeholder="Địa chỉ email" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="number">Số điện thoại liên lạc:</label>
+                  <input type="text" className="form-control mt-2" placeholder="Số điện thoại" />
+                </div>
+                <input className="btn btn-lg btn-success btn-block" type="submit" value="Đăng ký"></input>
+              </div>
+            </div>
+          </div>
         </ModalBody>
       </Modal>
     </div>
