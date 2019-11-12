@@ -1,0 +1,20 @@
+.parent-container {
+  .sub-container {
+    .wrapper {
+      .header {
+        .btn {
+            margin-left: 100px;
+          .hash-tag {
+            justify-content: center;
+            align-items: center;
+            background-color: #ebebeb;
+            border-radius: 30px;
+            height: 38px;
+            min-width: 65px;
+            margin-left: 50px;
+          }
+        }
+      }
+    }
+  }
+}
