@@ -18,7 +18,7 @@ import "./navbar.scss";
 import SearchBox from "./search-box/search-box";
 import MenuNav from "./menu-nav/menu-nav";
 import { Link } from "react-router-dom";
-import logo from "../../image/logo.png";
+import logo from "../../../assets/image-logo/logo.png";
 import Login from "../../pages/auth/login/login";
 import { faSleigh } from "@fortawesome/free-solid-svg-icons";
 import Register from "../../pages/auth/register/register";
