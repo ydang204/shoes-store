@@ -2,11 +2,10 @@
 import { withRouter, RouteComponentProps } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
-<<<<<<< HEAD
+
 import ProductItem from "../../shared/product-item/product-item";
-=======
 import { compose } from "recompose";
->>>>>>> ca8376e0085bda6ef44cb4e72c0d9f579ffdf18c
+
 
 import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
 import "./search.scss";
@@ -42,30 +41,14 @@ class Search extends Component<Props, States> {
   }
 
   render() {
-    let result = null;
-    if (!this.props.hasResult) {
-      result = (
-        <p className="text-center">
-          Xin lỗi, chúng tôi không thể tìm thấy sản phẩm
-        </p>
-      );
-    }
-
-<<<<<<< HEAD
-    render() {
-
         let result = null;
         if (!this.props.hasResult) {
             result = <p className="text-center">Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
         }
 
       return (
-          <main className="parent-container">
               <div className="sub-container">
                   <div className="wrapper">
-                      <div className="header">
-                          
-                      </div>
                       <div className="content">
                         <div className="search">
                             <button className="btn hash-tag ng-star-inserted">
@@ -87,28 +70,9 @@ class Search extends Component<Props, States> {
                       </div>
                   </div>
               </div>
-          </main>
       );
-=======
-    return (
-      <main className="parent-container">
-        <div className="sub-container">
-          <div className="wrapper">
-            <div className="header">
-              <button className="btn hash-tag">
-                <span>{this.state.queryTag}</span>
-                <FontAwesomeIcon icon={faWindowClose} />
-              </button>
-            </div>
-            <div className="content">
-              {result}
-              <div className="grid-container"></div>
-            </div>
-          </div>
-        </div>
-      </main>
-    );
->>>>>>> ca8376e0085bda6ef44cb4e72c0d9f579ffdf18c
+
+    
   }
 }
 
