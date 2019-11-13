@@ -1,14 +1,16 @@
 import React from "react";
-import { Input, Button } from "reactstrap";
+import { Input } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 import "./cart-item.scss";
 
-interface Props {}
+interface Props { }
 
 const CartItem: React.FC<Props> = props => {
   return (
     <div className="row shopping-cart-item">
-      <div className="col-md-2">
+      <div className="col-md-3">
         <p className="image">
           <img
             className="img-responsive"
@@ -17,23 +19,29 @@ const CartItem: React.FC<Props> = props => {
         </p>
       </div>
       <div className="col-md-5">
-        <p className="name">Giày nam, giày sneaker nam SP-283 - 40</p>
+        <p className="name">Giày nam, giày sneaker nam SP-283 - 40col-md-auto</p>
       </div>
-      <div className="col-md-2">
+      <div className="col-md-auto">
         <p className="name">100000</p>
       </div>
       <div className="name col-md-1">
         <Input
           type="number"
-          name="number"
+          name="item"
           id="exampleNumber"
           defaultValue="1"
         />
       </div>
       <div className="col-md-1">
-        <Button color="link">Xoa</Button>
+        <button className="btn">
+          <i className="fa fa-trash" />
+        </button>
       </div>
+
     </div>
+
+
+
   );
 };
 
