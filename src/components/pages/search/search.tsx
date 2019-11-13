@@ -3,6 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router';
 import './search.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
+import ProductItem from "../../shared/product-item/product-item";
 
 interface Props extends RouteComponentProps {
     hasResult: boolean;
@@ -49,13 +50,25 @@ class Search extends Component<Props, States> {
               <div className="sub-container">
                   <div className="wrapper">
                       <div className="header">
-                          <button className="btn hash-tag">
-                              <span>{this.state.queryTag}</span>
-                              <FontAwesomeIcon icon={faWindowClose} />
-                          </button>
+                          
                       </div>
                       <div className="content">
-                          {result}
+                        <div className="search">
+                            <button className="btn hash-tag ng-star-inserted">
+                                <i className="fa fa-close" style={{fontSize:'24px',marginLeft:'5px'}}/>
+                                    <span>{this.state.queryTag}</span>
+                            </button>
+                            <div className="container">
+                                <div className="row">
+                                <div className="col-md-3 col-sm-4">
+                                    <ProductItem />
+                                </div>
+                                </div>
+                            </div>
+                            {result}
+                            
+                          </div>
+        
                           <div className="grid-container"></div>
                       </div>
                   </div>
