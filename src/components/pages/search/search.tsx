@@ -11,7 +11,7 @@ import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
 import "./search.scss";
 import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
 interface Props extends RouteComponentProps {
-  hasResult: boolean;
+  hasResult: boolean,
   query: string;
 }
 
