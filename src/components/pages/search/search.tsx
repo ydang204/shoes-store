@@ -16,7 +16,8 @@ interface Props extends RouteComponentProps {
 }
 
 type States = {
-  queryTag: string;
+  hasResult: boolean,
+  queryTag: string
 };
 
 class Search extends Component<Props, States> {
@@ -24,6 +25,7 @@ class Search extends Component<Props, States> {
     super(props);
 
     this.state = {
+      hasResult: false,
       queryTag: ""
     };
   }
@@ -31,48 +33,63 @@ class Search extends Component<Props, States> {
   componentDidMount() {
     let param = this.props.history.location.state;
     this.setState({ queryTag: param.query });
+    this.setState({ hasResult: true });
   }
 
   componentDidUpdate(prevProps: Props, prevState: any) {
     let param = this.props.history.location.state;
+
     if (param.query != prevState.queryTag) {
       this.setState({ queryTag: param.query });
+      this.setState({ hasResult: true });
     }
   }
 
+  //Function
+  removeQueryTag(e: any) {
+    this.setState({ hasResult: false });
+    this.setState({ queryTag: "" })
+  }
+
   render() {
-        let result = null;
-        if (!this.props.hasResult) {
-            result = <p className="text-center">Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
-        }
+    return (
+      <div className="container breadcrumb-container">
+        <div className="wrapper">
+          <div className="content">
+            <button hidden={this.state.queryTag == ""} className="btn hash-tag ng-star-inserted" onClick={this.removeQueryTag.bind(this)}>
+              <i className="fa fa-close" />
+              <span>{this.state.queryTag}</span>
+            </button>
+            <div className="text-center">
+              <p hidden={this.state.hasResult != false}>Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
+            </div>
 
-      return (
-              <div className="sub-container">
-                  <div className="wrapper">
-                      <div className="content">
-                        <div className="search">
-                            <button className="btn hash-tag ng-star-inserted">
-                                <i className="fa fa-close" style={{fontSize:'24px',marginLeft:'5px'}}/>
-                                    <span>{this.state.queryTag}</span>
-                            </button>
-                            <div className="container">
-                                <div className="row">
-                                <div className="col-md-3 col-sm-4">
-                                    <ProductItem />
-                                </div>
-                                </div>
-                            </div>
-                            {result}
-                            
-                          </div>
-        
-                          <div className="grid-container"></div>
-                      </div>
-                  </div>
+            <div hidden={this.state.hasResult == false} className="grid-container">
+              <div className="row">
+                <div className="col-md-3 col-sm-6">
+                  <ProductItem />
+                </div>
+                <div className="col-md-3 col-sm-6">
+                  <ProductItem />
+                </div>
+                <div className="col-md-3 col-sm-6">
+                  <ProductItem />
+                </div>
+                <div className="col-md-3 col-sm-6">
+                  <ProductItem />
+                </div>
+
               </div>
-      );
+            </div>
 
-    
+
+
+          </div>
+        </div>
+      </div>
+    );
+
+
   }
 }
 
