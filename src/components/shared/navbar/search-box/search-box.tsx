@@ -59,7 +59,7 @@ class SearchBox extends React.Component<Props, States> {
           <Typeahead
             //   labelKey="name"
             options={this.state.data}
-            placeholder="Tìm kiếm sản phẩm, shop....."
+            placeholder="Tìm kiếm sản phẩm..."
             onInputChange={this._handleInput}
             onKeyDown={this._handleKeyDown}
           />
