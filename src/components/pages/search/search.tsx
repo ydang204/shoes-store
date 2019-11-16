@@ -60,8 +60,8 @@ class Search extends Component<Props, States> {
               <i className="fa fa-close" />
               <span>{this.state.queryTag}</span>
             </button>
-            <div className="text-center">
-              <p hidden={this.state.hasResult != false}>Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
+            <div className="text-center" hidden={this.state.hasResult != false}>
+              <p>Xin lỗi, chúng tôi không thể tìm thấy sản phẩm</p>
             </div>
 
             <div hidden={this.state.hasResult == false} className="grid-container">
