@@ -13,6 +13,7 @@
     "@types/qs": "^6.5.3",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
+    "@types/react-facebook-login": "^4.1.0",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
@@ -24,8 +25,13 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "^16.11.0",
+<<<<<<< HEAD
     "react-image-gallery": "^0.9.1",
     "react-image-magnify": "^2.7.4",
+=======
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.7",
+>>>>>>> 1a15737a8bba81a7ca955085a8631b79017ce1ea
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-slick": "^0.25.2",
@@ -34,7 +40,7 @@
     "typescript": "3.6.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

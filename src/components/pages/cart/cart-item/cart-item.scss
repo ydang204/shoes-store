@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cart-container {
     .row {
       margin-top: 10px;
@@ -76,3 +77,31 @@
       }
     }
   }
+=======
+.shopping-cart-item {
+  background: white;
+  .btn {
+    margin-left: 30px;
+  }
+
+  .name {
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: 400;
+    padding-top: 0;
+
+    .form-control {
+      height: calc(1em + 1rem + 1.5px);
+      width: 70px;
+      margin-top: -5px;
+    }
+  }
+
+  .btn {
+    margin-top: 15px;
+    .fa {
+      font-size: 20px;
+    }
+  }
+}
+>>>>>>> 1a15737a8bba81a7ca955085a8631b79017ce1ea

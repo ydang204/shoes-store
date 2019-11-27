@@ -19,30 +19,34 @@ class Cart extends React.Component<Props, States> {
     return (
       <div className="container cart-container">
         <div className="row">
-          <div className="col-sm-9">
+          <div className="cart-item col-auto">
             <form>
               <CartItem />
             </form>
           </div>
-          <div className="col-sm-3">
+          <div className="total col-auto">
             <form>
-              <div className="row list-info-price">
-                <div className="col-md-6">
+              <div className="row list-info-price col-xs-auto">
+                <div className="col">
                   <p className="title">Tạm tính:</p>
                 </div>
-                <div className="col-md-6">
+                <div className="col">
                   <p className="price">8000000</p>
                 </div>
               </div>
-              <div className="row total2">
-                <div className="col-md-6">
+              <div className="row total2 col-xs-auto">
+                <div className="col">
                   <p className="title">Thành tiền:</p>
                 </div>
-                <div className="col-md-6">
+                <div className="col">
                   <p className="price">150.000.000đ</p>
                 </div>
               </div>
-              <Button className="btn btn-danger btn-checkout">Đặt hàng</Button>
+
+              <div className='row col-xs-auto'>
+                <Button className="btn btn-danger btn-checkout">Đặt hàng</Button>
+              </div>
+
             </form>
           </div>
         </div>

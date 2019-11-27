@@ -1,15 +1,50 @@
 .logreg-forms form {
-    width: 100%;
-    max-width: 700px;
-    margin: auto;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
 }
 .logreg-forms .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
-.modal-title{
-    margin-left: auto;
+.modal-title {
+  margin-left: auto;
+}
+
+.login-facebook {
+  width: 466px;
+  height: 40px;
+  border-radius: 4px;
+  background: #3b5998;
+  color: white;
+  border: 0px transparent;
+  margin: 5px;
+  display: inline-block;
+}
+
+.login-google {
+  margin: 5px;
+  width: 466px;
+  height: 44px;
+  border-radius: 4px;
+  background: #db3236 !important;
+  color: white !important;
+  border: 0px transparent;
+  text-align: center !important;
+  .google {
+    margin-left: 118px;
+    font-size: 16px;
+    line-height: inherit;
+  }
+}
+.login-facebook:hover {
+  background: #3b5998;
+  opacity: 0.6;
+}
+.login-google:hover {
+  background: #db3236;
+  opacity: 0.6;
 }
