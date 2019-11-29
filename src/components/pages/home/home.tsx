@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import ProductItem from '../../shared/product-item/product-item';
+import React, { Component } from "react";
+import ProductItem from "../../shared/product-item/product-item";
 
-import './home.scss';
+import "./home.scss";
+import TrendingProducts from "./trending-products/trending-products";
+import MainSlider from "./main-slider/main-slider";
 
 type Props = {};
 
@@ -14,12 +16,9 @@ class Home extends React.Component<Props, States> {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-3 col-sm-4">
-            <ProductItem />
-          </div>
-        </div>
+      <div className="container home-container">
+        <MainSlider />
+        <TrendingProducts />
       </div>
     );
   }

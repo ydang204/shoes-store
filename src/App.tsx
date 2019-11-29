@@ -21,7 +21,7 @@ const App: React.FC = () => {
             <RouteLayout path="/search" component={Search} />
             <RouteLayout exact path="/" component={Home} />
             <RouteLayout exact path="/cart" component={Cart} />
-            <RouteLayout exact path="/productdetails" component={ProductDetails} />
+            <RouteLayout exact path="/product-details" component={ProductDetails} />
           </Route>
         </Switch>
       </BrowserRouter>
