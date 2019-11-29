@@ -7,11 +7,13 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "@material-ui/core": "^4.6.1",
     "@types/jest": "24.0.21",
     "@types/node": "12.12.3",
     "@types/qs": "^6.5.3",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
+    "@types/react-facebook-login": "^4.1.0",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
@@ -23,14 +25,22 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-bootstrap-typeahead": "^3.4.7",
     "react-dom": "^16.11.0",
+<<<<<<< HEAD
+    "react-image-gallery": "^0.9.1",
+    "react-image-magnify": "^2.7.4",
+=======
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^5.0.7",
+>>>>>>> 1a15737a8bba81a7ca955085a8631b79017ce1ea
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-slick": "^0.25.2",
     "reactstrap": "^8.1.1",
+    "recompose": "^0.30.0",
     "typescript": "3.6.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,9 +61,11 @@
     ]
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
     "@types/react-bootstrap-typeahead": "^3.4.5",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-slick": "^0.23.4",
-    "@types/reactstrap": "^8.0.6"
+    "@types/reactstrap": "^8.0.6",
+    "@types/recompose": "^0.30.7"
   }
 }

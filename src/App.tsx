@@ -9,6 +9,9 @@ import Home from './components/pages/home/home';
 import Login from './components/pages/auth/login/login';
 import Search from './components/pages/search/search';
 import Cart from './components/pages/cart/cart';
+import ProductDetails from './components/pages/product-details/product-details';
+import History from './components/pages/orderhistory/history';
+import Chitiet from './components/pages/orderhistory/chitiet/chitiet';
 
 const App: React.FC = () => { 
   return (
@@ -20,6 +23,9 @@ const App: React.FC = () => {
             <RouteLayout path="/search" component={Search} />
             <RouteLayout exact path="/" component={Home} />
             <RouteLayout exact path="/cart" component={Cart} />
+            <RouteLayout exact path="/productdetails" component={ProductDetails} />
+            <RouteLayout exact path="/history" component={History} />
+            <RouteLayout exact path="/history/chitiet" component={Chitiet} />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -2,11 +2,14 @@
     height: 56px;
     padding: calc((56px - 38px) /2);
     width: 1140px;
+    padding-left: 0;
     margin: auto;
 
     .menu-item {
         color: #7c7c7c;
         font-weight: 500;
+        padding-left: 0;
+        margin-right: 10px;
     }
 
     .menu-item:hover {

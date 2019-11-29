@@ -1,0 +1,83 @@
+.container1
+  {
+    margin-left: 12%;
+    width: 1140px;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 3em;
+    height: auto;
+  }
+  @media screen and (min-width: 997px) 
+  {
+    .wrapper 
+    {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; 
+    }
+  }
+    .details 
+    {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; 
+    }
+      .product-title, .price, .amount
+    {
+        font-weight: bold; 
+        span
+      {
+        font-weight: bold; 
+        color: #ff9f1a;
+        font-size: 20px;
+      }
+    }
+      .product-title, .rating, .price, .vote
+    {
+        margin-bottom: 15px;
+    }
+  .chitiet{
+    height: auto;
+    width: auto;
+    margin-bottom: 20px;
+    .chitietsp{
+      width: 1040px;
+      height: 50px;
+      font-weight: bold; 
+      background-color: rgba(0,0,0,.04);
+      padding: 1em;
+    }
+    .detailsp{
+      table td{
+        padding: 1em;
+        font-weight: bold; 
+      }
+    }
+    .reviewsp{
+      margin-top: 20px;
+    }
+  }
+  .danhgia{
+    width: 1040px;
+    height: 50px;
+    font-weight: bold; 
+    background-color: rgba(0,0,0,0.04);
+    padding: 1em;
+  }   
+  .danhgia1 {
+    margin-bottom: 20px;
+    button{
+		float: right;
+		margin-top: 10px;
+		height: 40px;
+		width: 150px;
+		margin-right: 10px;
+  }
+}

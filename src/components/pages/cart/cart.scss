@@ -1,74 +1,62 @@
-.row {
-  margin-top: 10px;
+.cart-container {
+  margin-top: 20px;
 
-  .shopping-cart-item {
-    background: white;
-
-    .btn {
-      margin-left: 30px;
+  .row {
+    .cart-item {
+      width: 840px;
+      margin-bottom: 20px;
+      margin-right: 10px;
     }
+    .total {
+      width: 290px;
+      .list-info-price {
+        background: white;
 
-    .name {
-      font-size: 16px;
-      margin-top: 20px;
-      font-weight: 400;
-      padding-top: 0;
+        .title {
+          font-size: 16px;
+          margin-top: 20px;
+          font-weight: 400;
+          padding-top: 0;
+        }
 
-      .form-control {
-        height: calc(1em + 0.5rem + 1.5px);
-        width: 70px;
+        .price {
+          margin-top: 20px;
+          float: right;
+          font-weight: 400;
+        }
+      }
+
+      .total2 {
+        background: white;
+        margin-top: 1px;
+        //margin-left: 1px;
+
+        .title {
+          color: #f7ca55;
+          margin-top: 5px;
+          display: inline-block;
+        }
+
+        .price {
+          float: right;
+          color: #f7ca55;
+          font-size: 22px;
+          font-weight: 400;
+        }
+      }
+
+      .btn-checkout {
+        margin-top: 8px;
+        padding: 10px;
+        width: 18em;
+      }
+
+      .btn-danger {
+        font-weight: 530;
+        color: #000000;
+        background-color: #f7ca55;
+        border-color: #f7ca55;
       }
     }
-
-    .btn-link {
-      margin-top: 15px;
-    }
-  }
-  .list-info-price {
-    background: white;
-    margin-top: 10px;
-    margin-left: 1px;
-
-    .title {
-      font-size: 16px;
-      margin-top: 20px;
-      font-weight: 400;
-      padding-top: 0;
-    }
-
-    .price {
-      margin-top: 20px;
-      float: right;
-      font-weight: 400;
-    }
-  }
-  .total2 {
-    background: white;
-    margin-top: 1px;
-    margin-left: 1px;
-
-    .title {
-      margin-top: 5px;
-      display: inline-block;
-    }
-
-    .price {
-      float: right;
-      color: #fe3834;
-      font-size: 22px;
-      font-weight: 400;
-    }
-  }
-
-  .btn-checkout {
-    margin-top: 8px;
-    padding: 10px;
-    width: 17em;
-  }
-
-  .btn-danger {
-    color: #fff;
-    background-color: #ff424e;
-    border-color: #ff424e;
   }
 }

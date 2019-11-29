@@ -1,0 +1,21 @@
+.breadcrumb-container {
+    background-color: #FFF;
+
+    .row {
+        .breadcrumb {
+            background-color: #FFF;
+            margin-bottom: 0;
+
+            .breadcrumb-arrow {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+
+            .breadcrumb-item {
+                a {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
