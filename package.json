@@ -39,10 +39,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
-    "start-http": "HTTPS=true npm start",
-=======
->>>>>>> 1dbe6c86c5fdf862ec697eddfaf5e620518c0b5f
+    "start-https": "HTTPS=true npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
