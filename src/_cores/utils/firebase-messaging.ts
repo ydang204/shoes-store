@@ -3,7 +3,7 @@ import "firebase/messaging";
 
 import API_URL from "../constants/firebase-config";
 import * as serviceWorker from "../../serviceWorker";
-import { createDeviceAsync } from "../../_services/notifications-api/notification-service";
+import { createDeviceAsync } from "../../_services/notifications-api/device-service";
 import CreateDeviceReqModel from "../../_models/notification-service/devices/req-model/create-device-req-model";
 
 firebase.initializeApp(API_URL);
@@ -18,7 +18,7 @@ export const askForPermissionToReceiveNotifications = async () => {
         })
         .then((token: any) => {
             const savedToken = localStorage.getItem("fcmToken");
-            if (savedToken === null) {
+            if (!savedToken) {
                 const model: CreateDeviceReqModel = {
                     deviceUniqueIdentify: token,
                     platform: "Web",

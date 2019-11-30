@@ -15,10 +15,8 @@ import { askForPermissionToReceiveNotifications } from "./_cores/utils/firebase-
 
 const App: React.FC = () => {
   useEffect(() => {
-    console.log("use effect");
     const savedToken = localStorage.getItem("fcmToken");
-    console.log(savedToken);
-    if (localStorage.getItem("token") && !savedToken) {
+    if (!savedToken) {
       askForPermissionToReceiveNotifications();
     }
 
