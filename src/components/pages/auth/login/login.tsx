@@ -43,11 +43,7 @@ const Login: React.FC<Props> = props => {
                   icon={<i className="fa fa-facebook" />}
                   textButton="&nbsp;&nbsp;Đăng nhập với Facebook"
                 />
-<<<<<<< HEAD
-                {/*<GoogleLogin
-=======
                 {/* <GoogleLogin
->>>>>>> 1dbe6c86c5fdf862ec697eddfaf5e620518c0b5f
                   className="login-google"
                   icon={false}
                   clientId={googleClientId}
@@ -57,11 +53,7 @@ const Login: React.FC<Props> = props => {
                   <div className='google'>
                     <i className="fa fa-google-plus" />
                     <span>&nbsp;Đăng nhập với Google</span> </div>
-<<<<<<< HEAD
-                </GoogleLogin>*/}
-=======
                 </GoogleLogin> */}
->>>>>>> 1dbe6c86c5fdf862ec697eddfaf5e620518c0b5f
               </div>
               <br />
               <div className="form-group">
