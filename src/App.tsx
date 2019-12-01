@@ -10,7 +10,7 @@ import Search from "./components/pages/search/search";
 import Cart from "./components/pages/cart/cart";
 import ProductDetails from "./components/pages/product-details/product-details";
 import History from "./components/pages/orderhistory/history";
-import Chitiet from "./components/pages/orderhistory/chitiet/chitiet";
+import OrderDetails from "./components/pages/orderhistory/detail-history/detail-history";
 import {
   askForPermissionToReceiveNotifications,
   messaging
@@ -43,7 +43,11 @@ const App: React.FC = () => {
               component={ProductDetails}
             />
             <RouteLayout exact path="/history" component={History} />
-            <RouteLayout exact path="/history/chitiet" component={Chitiet} />
+            <RouteLayout
+              exact
+              path="/history/detail"
+              component={OrderDetails}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

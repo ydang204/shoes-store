@@ -43,7 +43,7 @@ const Login: React.FC<Props> = props => {
                   icon={<i className="fa fa-facebook" />}
                   textButton="&nbsp;&nbsp;Đăng nhập với Facebook"
                 />
-                {/* <GoogleLogin
+                {/*<GoogleLogin
                   className="login-google"
                   icon={false}
                   clientId={googleClientId}

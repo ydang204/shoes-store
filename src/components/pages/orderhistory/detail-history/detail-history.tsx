@@ -1,8 +1,8 @@
 import React from 'react';
-import './chitiet.scss';
+import './detail-history.scss';
 import { Input, Button } from "reactstrap";
 
-const Chitiet: React.FC = () => {
+const Detail: React.FC = () => {
     return(
         <div>
             <div className="tieude">
@@ -95,4 +95,4 @@ const Chitiet: React.FC = () => {
     );
 }
 
-export default Chitiet;
+export default Detail;

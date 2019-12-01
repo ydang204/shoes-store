@@ -1,13 +1,30 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat Regular', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: "Montserrat Regular", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
+  a:hover {
+    text-decoration: none;
+  }
 
-    a:hover {
-        text-decoration: none;
-    }
+  .btn:focus,
+  .btn:active,
+  textarea:focus,
+  textarea.form-control:focus,
+  input.form-control:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  [type="text"].form-control:focus,
+  [type="password"].form-control:focus,
+  [type="email"].form-control:focus,
+  [type="tel"].form-control:focus,
+  [contenteditable].form-control:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
 }
