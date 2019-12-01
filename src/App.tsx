@@ -11,7 +11,10 @@ import Cart from "./components/pages/cart/cart";
 import ProductDetails from "./components/pages/product-details/product-details";
 import History from "./components/pages/orderhistory/history";
 import Chitiet from "./components/pages/orderhistory/chitiet/chitiet";
-import { askForPermissionToReceiveNotifications } from "./_cores/utils/firebase-messaging";
+import {
+  askForPermissionToReceiveNotifications,
+  messaging
+} from "./_cores/utils/firebase-messaging";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -19,6 +22,8 @@ const App: React.FC = () => {
     if (!savedToken) {
       askForPermissionToReceiveNotifications();
     }
+
+    messaging.onMessage(message => console.log(message));
 
     window.scrollTo(0, 0);
   }, []);

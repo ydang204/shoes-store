@@ -8,6 +8,7 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   // Customize notification here
+
   const {
     data: { title, message }
   } = payload;
