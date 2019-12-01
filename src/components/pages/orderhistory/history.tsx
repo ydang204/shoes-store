@@ -31,7 +31,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -44,7 +44,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -57,7 +57,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -70,7 +70,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -83,7 +83,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -96,7 +96,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
@@ -109,7 +109,7 @@ const History: React.FC = () => {
                             <td>Đã xử lý</td>
                             <td>
                                 <i>
-                                    <Link to="/history/chitiet">Chi tiết</Link>
+                                    <Link to="/history/detail">Chi tiết</Link>
                                 </i>
                             </td>
                         </tr>
