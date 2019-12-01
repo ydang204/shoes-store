@@ -1,7 +1,6 @@
 const urls = {
-  // development: "http://localhost:5555",
-  development: "https://eve-api-staging.futurify.io:5555",
-  production: "https://eve-api-staging.futurify.io:5555"
+  development: "http://localhost:9000/",
+  production: "https://localhost:9000/"
 } as any;
 
 const API_URL = urls[process.env.NODE_ENV];
