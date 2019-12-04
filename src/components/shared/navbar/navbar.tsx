@@ -17,7 +17,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import "./navbar.scss";
 import SearchBox from "./search-box/search-box";
 import MenuNav from "./menu-nav/menu-nav";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import logo from "../../../assets/image-logo/logo.png";
 import Login from "../../pages/auth/login/login";
 import { faSleigh } from "@fortawesome/free-solid-svg-icons";
@@ -30,7 +30,7 @@ import LoginReqModel from "../../../_models/user-api/req-model/login-req-model";
 import { loginAsync } from "../../../_services/users-api/auth-service";
 import { AccountLoginResModel } from "../../../_models/user-api/res-model/login-res-model";
 
-type Props = {};
+interface Props extends RouteComponentProps {}
 
 type States = {
   isOpenNavbar: boolean;
@@ -122,8 +122,11 @@ class NavBar extends Component<Props, States> {
   };
 
   logOut = () => {
-    this.setState({ isLoggedIn: false }, () => this.setState({}));
-    localStorage.clear();
+    this.setState({ isLoggedIn: false }, () => {
+      localStorage.clear();
+      this.props.history.push("/");
+      this.setState({});
+    });
   };
 
   render() {
@@ -204,4 +207,4 @@ class NavBar extends Component<Props, States> {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

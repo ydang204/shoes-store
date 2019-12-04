@@ -9,13 +9,17 @@ import "react-bootstrap-typeahead/css/Typeahead-bs4.css";
 import "./search-box.scss";
 import { Nav } from "reactstrap";
 import { withRouter, RouteComponentProps } from "react-router";
+import SearchProductResModel from "../../../../_models/product-api/res-model/search-product-res-model";
+import SearchProductReqModel from "../../../../_models/product-api/req-model/search-product-req-model";
+import { searchProductsAsync } from "../../../../_services/products-api/product-service";
 
 interface Props extends RouteComponentProps {}
 
-type States = {
+interface States {
   data: [];
   query: string;
-};
+  isLoading: boolean;
+}
 
 class SearchBox extends React.Component<Props, States> {
   constructor(props: Props) {
@@ -23,11 +27,12 @@ class SearchBox extends React.Component<Props, States> {
 
     this.state = {
       data: [],
+      isLoading: false,
       query: ""
     };
   }
 
-  _handleKeyDown = (e: any) => {
+  handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
       this.props.history.push({
         pathname: "/search",
@@ -37,8 +42,20 @@ class SearchBox extends React.Component<Props, States> {
     }
   };
 
-  _handleInput = (queryString: string, e: any) => {
-    this.setState({ query: queryString });
+  handleInput = async (queryString: string) => {
+    try {
+      this.setState({ query: queryString, isLoading: true });
+
+      const reqModel: SearchProductReqModel = {
+        name: queryString
+      };
+
+      const res = await searchProductsAsync(reqModel);
+
+      this.setState({ data: res.data });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
   render() {
@@ -47,11 +64,11 @@ class SearchBox extends React.Component<Props, States> {
         <div className="search-box">
           <FontAwesomeIcon icon={faSearch} />
           <Typeahead
-            //   labelKey="name"
+            labelKey={(option: any) => option.name}
             options={this.state.data}
             placeholder="Tìm kiếm sản phẩm..."
-            onInputChange={this._handleInput}
-            onKeyDown={this._handleKeyDown}
+            onInputChange={this.handleInput}
+            onKeyDown={this.handleKeyDown}
             id="searchBox"
           />
         </div>
