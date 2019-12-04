@@ -23,7 +23,7 @@ const Login: React.FC<Props> = props => {
 
   const facebookAppId = "999027390441007";
   const googleClientId =
-    "1040263280986-ksk8a26hch9okcs2acpsf7e58t0d1bi0.apps.googleusercontent.com";
+    "333428677572-7un92vds8d1i0fmco88jb3tqrhbn9ale.apps.googleusercontent.com";
 
   return (
     <div>
@@ -43,7 +43,7 @@ const Login: React.FC<Props> = props => {
                   icon={<i className="fa fa-facebook" />}
                   textButton="&nbsp;&nbsp;Đăng nhập với Facebook"
                 />
-                {/*<GoogleLogin
+                <GoogleLogin
                   className="login-google"
                   icon={false}
                   clientId={googleClientId}
@@ -53,7 +53,7 @@ const Login: React.FC<Props> = props => {
                   <div className='google'>
                     <i className="fa fa-google-plus" />
                     <span>&nbsp;Đăng nhập với Google</span> </div>
-                </GoogleLogin> */}
+                </GoogleLogin>
               </div>
               <br />
               <div className="form-group">
