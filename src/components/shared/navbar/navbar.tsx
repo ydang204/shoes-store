@@ -26,6 +26,8 @@ import { getCategoriesAsync } from "../../../_services/products-api/category-ser
 import CategoryResModel from "../../../_models/product-api/res-model/category-res-model";
 import { getBrandsAsync } from "../../../_services/products-api/brand-service";
 import BrandResModel from "../../../_models/product-api/res-model/brand-res-model";
+import LoginReqModel from "../../../_models/user-api/req-model/login-req-model";
+import { loginAsync } from "../../../_services/users-api/auth-service";
 
 type Props = {};
 
@@ -35,6 +37,8 @@ type States = {
   isOpenRegisterModal: boolean;
   categories: CategoryResModel[];
   brands: BrandResModel[];
+  loginReqModel: LoginReqModel;
+  isLoggedIn: boolean;
 };
 
 class NavBar extends Component<Props, States> {
@@ -43,10 +47,15 @@ class NavBar extends Component<Props, States> {
 
     this.state = {
       isOpenNavbar: false,
+      isLoggedIn: false,
       isOpenLoginModal: false,
       isOpenRegisterModal: false,
       categories: [],
-      brands: []
+      brands: [],
+      loginReqModel: {
+        password: "",
+        userName: ""
+      }
     };
   }
 
@@ -67,6 +76,13 @@ class NavBar extends Component<Props, States> {
     this.setState({ brands: res.data.items });
   };
 
+  handleLogin = async () => {
+    const res = await loginAsync(this.state.loginReqModel);
+
+    localStorage.setItem("token", res.data.token);
+    this.setState({ isLoggedIn: true, isOpenLoginModal: false });
+  };
+
   // End call API region
 
   toggleNavbar = () => {
@@ -84,6 +100,16 @@ class NavBar extends Component<Props, States> {
     });
   };
 
+  handleLoginInputChange = (event: any) => {
+    const { value, name } = event.target;
+    let newModel = {} as any;
+    newModel[name] = value;
+
+    this.setState({
+      loginReqModel: { ...this.state.loginReqModel, ...newModel }
+    });
+  };
+
   render() {
     return (
       <div className="navbar-container fixed-top">
@@ -96,23 +122,28 @@ class NavBar extends Component<Props, States> {
             <Collapse isOpen={this.state.isOpenNavbar} navbar>
               <SearchBox />
               <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <button
-                    className="btn btn-login"
-                    onClick={this.toggleLoginModal}
-                  >
-                    Kết nối | Đăng nhập
-                  </button>
-                  <Login
-                    isOpen={this.state.isOpenLoginModal}
-                    toggleModal={this.toggleLoginModal}
-                    toggleRegisterModel={this.toggleResgisterModal}
-                  />
-                  <Register
-                    isOpen={this.state.isOpenRegisterModal}
-                    toggleModal={this.toggleResgisterModal}
-                  />
-                </NavItem>
+                {!this.state.isLoggedIn && (
+                  <NavItem>
+                    <button
+                      className="btn btn-login"
+                      onClick={this.toggleLoginModal}
+                    >
+                      Kết nối | Đăng nhập
+                    </button>
+                    <Login
+                      isOpen={this.state.isOpenLoginModal}
+                      toggleModal={this.toggleLoginModal}
+                      toggleRegisterModel={this.toggleResgisterModal}
+                      handleInputChange={this.handleLoginInputChange}
+                      handleSubmit={this.handleLogin}
+                    />
+                    <Register
+                      isOpen={this.state.isOpenRegisterModal}
+                      toggleModal={this.toggleResgisterModal}
+                    />
+                  </NavItem>
+                )}
+
                 <NavItem>
                   <Link to="/login">
                     <FontAwesomeIcon icon={faUser} />

@@ -18,8 +18,6 @@ interface Props extends RouteComponentProps {
 const MenuNav: React.FC<Props> = props => {
   const { categories, brands, history } = props;
 
-  console.log(brands);
-
   const handleCategoryMenuClick = (
     category: CategoryResModel | ChildCategoryResModel
   ) => {
