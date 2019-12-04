@@ -3,6 +3,7 @@
   max-width: 700px;
   margin: auto;
 }
+
 .logreg-forms .form-control {
   position: relative;
   box-sizing: border-box;
@@ -10,6 +11,7 @@
   padding: 10px;
   font-size: 16px;
 }
+
 .modal-title {
   margin-left: auto;
 }
@@ -34,16 +36,19 @@
   color: white !important;
   border: 0px transparent;
   text-align: center !important;
+
   .google {
     margin-left: 118px;
     font-size: 16px;
     line-height: inherit;
   }
 }
+
 .login-facebook:hover {
   background: #3b5998;
   opacity: 0.6;
 }
+
 .login-google:hover {
   background: #db3236;
   opacity: 0.6;

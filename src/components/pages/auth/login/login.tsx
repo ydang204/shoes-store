@@ -50,9 +50,10 @@ const Login: React.FC<Props> = props => {
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                 >
-                  <div className='google'>
+                  <div className="google">
                     <i className="fa fa-google-plus" />
-                    <span>&nbsp;Đăng nhập với Google</span> </div>
+                    <span>&nbsp;Đăng nhập với Google</span>{" "}
+                  </div>
                 </GoogleLogin>
               </div>
               <br />
@@ -80,11 +81,9 @@ const Login: React.FC<Props> = props => {
             </form>
             <hr></hr>
           </div>
-          Chưa có tài khoản? 
-          <a href="#" data-toggle="modal"
-            onClick={toggleRegisterModel}
-          >
-             Đăng ký ngay!
+          Chưa có tài khoản?
+          <a href="#" onClick={toggleRegisterModel}>
+            &nbsp;Đăng ký ngay!
           </a>
         </ModalBody>
       </Modal>
