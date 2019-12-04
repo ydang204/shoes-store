@@ -39,7 +39,7 @@ const App: React.FC = () => {
             <RouteLayout exact path="/cart" component={Cart} />
             <RouteLayout
               exact
-              path="/productdetails"
+              path="/product-details"
               component={ProductDetails}
             />
             <RouteLayout exact path="/history" component={History} />
