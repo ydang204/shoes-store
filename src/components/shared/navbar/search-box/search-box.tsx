@@ -58,6 +58,13 @@ class SearchBox extends React.Component<Props, States> {
     }
   };
 
+  handleSelected = (products: SearchProductResModel[]) => {
+    const product = products[0];
+    this.props.history.push(
+      `product-details/${product.slugName}-${product.id}`
+    );
+  };
+
   render() {
     return (
       <Nav navbar className="search-container">
@@ -70,6 +77,7 @@ class SearchBox extends React.Component<Props, States> {
             onInputChange={this.handleInput}
             onKeyDown={this.handleKeyDown}
             id="searchBox"
+            onChange={this.handleSelected}
           />
         </div>
       </Nav>
