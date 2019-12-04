@@ -22,7 +22,7 @@ const CategoryMenuDropdown: React.FC<Props> = props => {
   const { category, handleCategoryMenuClick } = props;
 
   const childCategories = category.childCategories.map(c => (
-    <DropdownItem onClick={() => handleCategoryMenuClick(c)}>
+    <DropdownItem onClick={() => handleCategoryMenuClick(c)} key={c.id}>
       {c.name}
     </DropdownItem>
   ));

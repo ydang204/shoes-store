@@ -3,7 +3,7 @@ interface LoginResModel {
     account: Account;
 }
 
-export interface Account {
+export interface AccountLoginResModel {
     userName: string;
     fullName?: any;
     email: string;

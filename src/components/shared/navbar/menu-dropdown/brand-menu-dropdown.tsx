@@ -23,7 +23,7 @@ const BrandMenuDropdown: React.FC<Props> = props => {
   const { brands, handleBrandMenuClick } = props;
 
   const childCategories = brands.map(b => (
-    <DropdownItem onClick={() => handleBrandMenuClick(b)}>
+    <DropdownItem onClick={() => handleBrandMenuClick(b)} key={b.id}>
       {b.name}
     </DropdownItem>
   ));

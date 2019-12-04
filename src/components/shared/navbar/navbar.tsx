@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Collapse,
   Navbar,
@@ -28,6 +28,7 @@ import { getBrandsAsync } from "../../../_services/products-api/brand-service";
 import BrandResModel from "../../../_models/product-api/res-model/brand-res-model";
 import LoginReqModel from "../../../_models/user-api/req-model/login-req-model";
 import { loginAsync } from "../../../_services/users-api/auth-service";
+import { AccountLoginResModel } from "../../../_models/user-api/res-model/login-res-model";
 
 type Props = {};
 
@@ -39,15 +40,19 @@ type States = {
   brands: BrandResModel[];
   loginReqModel: LoginReqModel;
   isLoggedIn: boolean;
+  user?: AccountLoginResModel | null;
 };
 
 class NavBar extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
 
+    const isLoggedIn = localStorage.getItem("token") !== null;
+
     this.state = {
       isOpenNavbar: false,
-      isLoggedIn: false,
+      isLoggedIn: isLoggedIn,
+      user: this.getCurrentUser(),
       isOpenLoginModal: false,
       isOpenRegisterModal: false,
       categories: [],
@@ -80,10 +85,16 @@ class NavBar extends Component<Props, States> {
     const res = await loginAsync(this.state.loginReqModel);
 
     localStorage.setItem("token", res.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.account));
     this.setState({ isLoggedIn: true, isOpenLoginModal: false });
   };
 
   // End call API region
+
+  getCurrentUser(): AccountLoginResModel | null {
+    const user = localStorage.getItem("user");
+    return user ? (JSON.parse(user) as AccountLoginResModel) : null;
+  }
 
   toggleNavbar = () => {
     this.setState({ isOpenNavbar: !this.state.isOpenNavbar });
@@ -110,6 +121,11 @@ class NavBar extends Component<Props, States> {
     });
   };
 
+  logOut = () => {
+    this.setState({ isLoggedIn: false }, () => this.setState({}));
+    localStorage.clear();
+  };
+
   render() {
     return (
       <div className="navbar-container fixed-top">
@@ -123,45 +139,58 @@ class NavBar extends Component<Props, States> {
               <SearchBox />
               <Nav className="ml-auto" navbar>
                 {!this.state.isLoggedIn && (
-                  <NavItem>
-                    <button
-                      className="btn btn-login"
-                      onClick={this.toggleLoginModal}
-                    >
-                      Kết nối | Đăng nhập
-                    </button>
-                    <Login
-                      isOpen={this.state.isOpenLoginModal}
-                      toggleModal={this.toggleLoginModal}
-                      toggleRegisterModel={this.toggleResgisterModal}
-                      handleInputChange={this.handleLoginInputChange}
-                      handleSubmit={this.handleLogin}
-                    />
-                    <Register
-                      isOpen={this.state.isOpenRegisterModal}
-                      toggleModal={this.toggleResgisterModal}
-                    />
-                  </NavItem>
+                  <Fragment>
+                    <NavItem>
+                      <button
+                        className="btn btn-login"
+                        onClick={this.toggleLoginModal}
+                      >
+                        Kết nối | Đăng nhập
+                      </button>
+                      <Login
+                        isOpen={this.state.isOpenLoginModal}
+                        toggleModal={this.toggleLoginModal}
+                        toggleRegisterModel={this.toggleResgisterModal}
+                        handleInputChange={this.handleLoginInputChange}
+                        handleSubmit={this.handleLogin}
+                      />
+                      <Register
+                        isOpen={this.state.isOpenRegisterModal}
+                        toggleModal={this.toggleResgisterModal}
+                      />
+                    </NavItem>
+                    <NavItem onClick={this.toggleLoginModal}>
+                      <FontAwesomeIcon icon={faUser} />
+                    </NavItem>
+                    <NavItem onClick={this.toggleLoginModal}>
+                      <Link to="/cart">
+                        <i className="fa fa-shopping-cart"></i>
+                      </Link>
+                    </NavItem>
+                  </Fragment>
                 )}
 
-                <NavItem>
-                  <Link to="/login">
-                    <FontAwesomeIcon icon={faUser} />
-                  </Link>
-                </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav>Tài khoản</DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Tài khoản của tôi</DropdownItem>
-                    <DropdownItem>Đăng xuất</DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-                <NavItem>
-                  <Link to="/cart">
-                    <i className="fa fa-shopping-cart"></i>
-                    <span className="badge badge-info">0</span>
-                  </Link>
-                </NavItem>
+                {this.state.isLoggedIn && this.state.user && (
+                  <Fragment>
+                    <UncontrolledDropdown nav inNavbar>
+                      <DropdownToggle nav>
+                        Xin chào {this.state.user.fullName}
+                      </DropdownToggle>
+                      <DropdownMenu right>
+                        <DropdownItem>Tài khoản của tôi</DropdownItem>
+                        <DropdownItem onClick={this.logOut}>
+                          Đăng xuất
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                    <NavItem>
+                      <Link to="/cart">
+                        <i className="fa fa-shopping-cart"></i>
+                        <span className="badge badge-info">0</span>
+                      </Link>
+                    </NavItem>
+                  </Fragment>
+                )}
               </Nav>
             </Collapse>
           </Navbar>
