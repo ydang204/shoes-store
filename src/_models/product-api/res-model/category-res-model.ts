@@ -1,4 +1,4 @@
-interface ChildCategoryResModel {
+export interface ChildCategoryResModel {
     id: number;
     name: string;
     slugName: string;

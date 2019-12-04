@@ -52,18 +52,19 @@ class NavBar extends Component<Props, States> {
 
   componentDidMount() {
     this.getCategories();
+    this.getBrands();
   }
 
   // Call API region
 
   getCategories = async () => {
     const res = await getCategoriesAsync();
-    this.setState({ categories: res.data });
+    this.setState({ categories: res.data.items });
   };
 
   getBrands = async () => {
     const res = await getBrandsAsync();
-    this.setState({ brands: res.data });
+    this.setState({ brands: res.data.items });
   };
 
   // End call API region
@@ -134,7 +135,10 @@ class NavBar extends Component<Props, States> {
             </Collapse>
           </Navbar>
         </div>
-        <MenuNav />
+        <MenuNav
+          categories={this.state.categories}
+          brands={this.state.brands}
+        />
       </div>
     );
   }
