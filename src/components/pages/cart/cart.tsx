@@ -24,28 +24,26 @@ class Cart extends React.Component<Props, States> {
               <CartItem />
             </form>
           </div>
-          <div className="total col-auto">
+          <div className="total col-sm-3">
             <form>
               <div className="row list-info-price col-xs-auto">
-                <div className="col">
+                <div className="col-md-6">
                   <p className="title">Tạm tính:</p>
                 </div>
-                <div className="col">
+                <div className="col-md-6">
                   <p className="price">8000000</p>
                 </div>
               </div>
               <div className="row total2 col-xs-auto">
-                <div className="col">
+                <div className="col-md-6">
                   <p className="title">Thành tiền:</p>
                 </div>
-                <div className="col">
+                <div className="col-md-6">
                   <p className="price">150.000.000đ</p>
                 </div>
               </div>
 
-              <div className='row col-xs-auto'>
                 <Button className="btn btn-danger btn-checkout">Đặt hàng</Button>
-              </div>
 
             </form>
           </div>

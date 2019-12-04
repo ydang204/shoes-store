@@ -73,20 +73,19 @@ const Login: React.FC<Props> = props => {
                 />
               </div>
               <input
-                className="btn btn-lg btn-success btn-block"
+                className="btn btn-lg btn-warning btn-block"
                 type="submit"
                 value="Đăng nhập"
               ></input>
             </form>
             <hr></hr>
           </div>
-          <button
-            className="btn btn-dark"
-            style={{ width: "100%", textAlign: "center" }}
+          Chưa có tài khoản? 
+          <a href="#" data-toggle="modal"
             onClick={toggleRegisterModel}
           >
-            Đăng ký tài khoản
-          </button>
+             Đăng ký ngay!
+          </a>
         </ModalBody>
       </Modal>
     </div>
