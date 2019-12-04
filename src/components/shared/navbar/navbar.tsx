@@ -22,6 +22,10 @@ import logo from "../../../assets/image-logo/logo.png";
 import Login from "../../pages/auth/login/login";
 import { faSleigh } from "@fortawesome/free-solid-svg-icons";
 import Register from "../../pages/auth/register/register";
+import { getCategoriesAsync } from "../../../_services/products-api/category-service";
+import CategoryResModel from "../../../_models/product-api/res-model/category-res-model";
+import { getBrandsAsync } from "../../../_services/products-api/brand-service";
+import BrandResModel from "../../../_models/product-api/res-model/brand-res-model";
 
 type Props = {};
 
@@ -29,6 +33,8 @@ type States = {
   isOpenNavbar: boolean;
   isOpenLoginModal: boolean;
   isOpenRegisterModal: boolean;
+  categories: CategoryResModel[];
+  brands: BrandResModel[];
 };
 
 class NavBar extends Component<Props, States> {
@@ -38,9 +44,29 @@ class NavBar extends Component<Props, States> {
     this.state = {
       isOpenNavbar: false,
       isOpenLoginModal: false,
-      isOpenRegisterModal: false
+      isOpenRegisterModal: false,
+      categories: [],
+      brands: []
     };
   }
+
+  componentDidMount() {
+    this.getCategories();
+  }
+
+  // Call API region
+
+  getCategories = async () => {
+    const res = await getCategoriesAsync();
+    this.setState({ categories: res.data });
+  };
+
+  getBrands = async () => {
+    const res = await getBrandsAsync();
+    this.setState({ brands: res.data });
+  };
+
+  // End call API region
 
   toggleNavbar = () => {
     this.setState({ isOpenNavbar: !this.state.isOpenNavbar });
