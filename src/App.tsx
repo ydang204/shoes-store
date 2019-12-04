@@ -15,6 +15,7 @@ import {
   askForPermissionToReceiveNotifications,
   messaging
 } from "./_cores/utils/firebase-messaging";
+import Checkout from "./components/pages/check-out/check-out";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -33,6 +34,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Switch>
           <Route>
+            <RouteLayout path="/checkout" component={Checkout} />
             <RouteLayout path="/login" component={Login} />
             <RouteLayout path="/search" component={Search} />
             <RouteLayout exact path="/" component={Home} />
