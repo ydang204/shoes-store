@@ -1,107 +1,42 @@
 .cart-container {
-  .row {
-    margin-top: 10px;
-
-    .shopping-cart-item {
-      background: white;
-
-      .btn {
-        margin-left: 30px;
+  .total{
+    float: left;
+    .row1 { 
+      width: 650px;
+      background-color: #fff;
+      margin-top: 10px;
+      height: auto;
+      margin-top: 10px;
+      .number1{
+        width: 70px;
+        margin-left: 10px;
       }
-
-      .name {
-        font-size: 16px;
-        margin-top: 20px;
-        font-weight: 400;
-        padding-top: 0;
-
-        .form-control {
-          height: calc(1em + 0.5rem + 1.5px);
-          width: 70px;
+      .btn{
+        font-size: 24px;
+      }
+    }
+    .row2{
+      width: 270px;
+      margin-top: auto;
+      float: right;
+      margin-right: 15px;
+        .title {
+          color: #000;
+          margin-top: 5px;
+          display: inline-block;
+        }
+        .price {
+          float: right;
+          color: #f7ca55;
+          font-size: 22px;
+          font-weight: 400;
         }
       }
-
-      .btn-link {
-        margin-top: 15px;
+    
+      .btn-checkout {
+        margin-top: 8px;
+        padding: 10px;
+        width: 18em;
       }
-    }
-
-    .list-info-price {
-      background: white;
-      margin-top: 10px;
-      margin-left: 1px;
-
-      .title {
-        font-size: 16px;
-        margin-top: 20px;
-        font-weight: 400;
-        padding-top: 0;
-      }
-
-      .price {
-        margin-top: 20px;
-        float: right;
-        font-weight: 400;
-      }
-    }
-
-    .total2 {
-      background: white;
-      margin-top: 1px;
-      margin-left: 1px;
-
-      .title {
-        margin-top: 5px;
-        display: inline-block;
-      }
-
-      .price {
-        float: right;
-        color: #fe3834;
-        font-size: 22px;
-        font-weight: 400;
-      }
-    }
-
-    .btn-checkout {
-      margin-top: 8px;
-      padding: 10px;
-      width: 17em;
-    }
-
-    .btn-danger {
-      color: #fff;
-      background-color: #ff424e;
-      border-color: #ff424e;
-    }
-  }
-}
-
-.shopping-cart-item {
-  background: white;
-
-  .btn {
-    margin-left: 30px;
-  }
-
-  .name {
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: 400;
-    padding-top: 0;
-
-    .form-control {
-      height: calc(1em + 1rem + 1.5px);
-      width: 70px;
-      margin-top: -5px;
-    }
-  }
-
-  .btn {
-    margin-top: 15px;
-
-    .fa {
-      font-size: 20px;
-    }
   }
 }

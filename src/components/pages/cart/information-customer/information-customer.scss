@@ -1,0 +1,93 @@
+.information{
+    width: 480px;
+    background-color: #fff;
+    margin-left: 10px;
+    margin-top: 10px;
+    .row{
+        padding: 1em;
+        .col-lg-12{
+            .form-group{
+                padding: 0 !important;
+            }
+        }
+    }
+    .checkout_payment{
+    margin-top: 5px;
+    display: block;
+        .payment-method_option{
+            padding: 8px;
+            .content{
+                margin-top: 16px;
+                height: 10px;
+                background-color: #fff;
+            }
+            .payment-method_item{
+                border-radius: 8px;
+                background-color: #f8f8f8;
+                border: 1px solid transparent;
+                height: 80px;
+                overflow: hidden;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                padding: 0 25px;
+                .is-active{
+                    border-color: #e24309
+                }
+                
+                .radiobox{
+                    padding-left: 0;
+                    -webkit-box-align: center;
+                    display: flex;
+                    position: relative;
+                    cursor: pointer;
+                    font-size: 16px;
+                    user-select: none;
+                    input{
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+                    .checkmark{
+                        top: 0;
+                        left: 0;
+                        height: 24px;
+                        width: 24px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        border: 2px solid #e24309;
+                        position: relative !important;
+                        -webkit-box-flex: 0;
+                        :after {
+                            display: block;
+                            content: "";
+                            position: absolute;
+                            top: 3px;
+                            left: 3px;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 50%;
+                            background: #e24309;
+                            box-sizing: border-box;
+                        }
+                    }
+                    .payment-method_icon{
+                        min-width: 75px;
+                        padding: 0 18px 0 20px;
+                        color: #9e9b9b;
+                    }
+                }
+            }
+            .btn-danger {
+                font-weight: 530;
+                color: #000000;
+                background-color: #f7ca55;
+                border-color: #f7ca55;
+                width: 430px;
+                margin-top: 20px;
+            }
+        }
+    }
+}

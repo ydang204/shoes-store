@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import "./cart.scss";
-import { Button, Input } from "reactstrap";
+
 import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
 import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
 import CartItem from "./cart-item/cart-item";
+import InformationCustomer from "./information-customer/information-customer";
 
 type Props = {};
 
@@ -19,34 +20,8 @@ class Cart extends React.Component<Props, States> {
     return (
       <div className="container cart-container">
         <div className="row">
-          <div className="cart-item col-auto">
-            <form>
-              <CartItem />
-            </form>
-          </div>
-          <div className="total col-sm-3">
-            <form>
-              <div className="row list-info-price col-xs-auto">
-                <div className="col-md-6">
-                  <p className="title">Tạm tính:</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="price">8000000</p>
-                </div>
-              </div>
-              <div className="row total2 col-xs-auto">
-                <div className="col-md-6">
-                  <p className="title">Thành tiền:</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="price">150.000.000đ</p>
-                </div>
-              </div>
-
-                <Button className="btn btn-danger btn-checkout">Đặt hàng</Button>
-
-            </form>
-          </div>
+            <CartItem />
+            <InformationCustomer />  
         </div>
       </div>
     );
