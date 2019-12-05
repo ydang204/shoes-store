@@ -48,13 +48,15 @@ class Products extends React.Component<Props, States> {
 
   render() {
     const breadcrumbItems: BreadcrumbItem[] = [{ name: "Sản phẩm" }];
+    const products = this.state.products.map(p => (
+      <ProductItem product={p} key={p.slugName} />
+    ));
+
     return (
       <Fragment>
         <Breadcrumb items={breadcrumbItems} />
         <div className="products-container container">
-          <div className="row">
-            <ProductItem />
-          </div>
+          <div className="row">{products}</div>
         </div>
       </Fragment>
     );

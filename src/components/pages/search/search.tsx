@@ -61,32 +61,7 @@ class Search extends Component<Props, States> {
       ) : (
         <Fragment>
           <div className="grid-container">
-            <div className="row">
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-              <div className="col-md-3 col-sm-6">
-                <ProductItem />
-              </div>
-            </div>
+            <div className="row"></div>
           </div>
         </Fragment>
       );

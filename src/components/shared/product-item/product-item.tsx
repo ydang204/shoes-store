@@ -1,8 +1,11 @@
 import React from "react";
 
 import "./product-item.scss";
+import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 
-interface Props {}
+interface Props {
+  product: GetProductsResModel;
+}
 
 const ProductItem: React.FC<Props> = props => {
   return (
