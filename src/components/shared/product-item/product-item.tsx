@@ -15,14 +15,16 @@ const ProductItem: React.FC<Props> = props => {
     history.push(`product-details/${product.slugName}`);
   };
 
+  const images = product.productImages.splice(0, 2).map((img, index) => {
+    const classname = `pic-${index + 1}`;
+    return <img key={index} className={classname} src={img.imageUrl} />;
+  });
+
   return (
     <div className="col-md-3 col-sm-6">
       <div className="product-item">
         <div className="product-image">
-          <a href="#">
-            <img className="pic-1" src={product.productImages[0].imageUrl} />
-            <img className="pic-2" src={product.productImages[1].imageUrl} />
-          </a>
+          <a href="#">{images}</a>
           <ul className="social">
             <li>
               <p

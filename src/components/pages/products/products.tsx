@@ -6,11 +6,15 @@ import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
 import Breadcrumb from "../../shared/breadcrumb/breadcrumb";
 import ProductItem from "../../shared/product-item/product-item";
 import GetProductsReqModel from "../../../_models/product-api/req-model/get-product-req-model";
-import { getProductsAsync } from "../../../_services/products-api/product-service";
+import {
+  getProductsAsync,
+  parseProductsReqModel
+} from "../../../_services/products-api/product-service";
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import BasePagingResModel from "../../../_models/shared/base-paging-res-model";
+import { RouteComponentProps, withRouter } from "react-router";
 
-interface Props {}
+interface Props extends RouteComponentProps {}
 
 interface States {
   getProductsModel: GetProductsReqModel;
@@ -37,8 +41,29 @@ class Products extends React.Component<Props, States> {
     this.getProducts();
   }
 
+  componentDidUpdate(prevProps: Props, prevStates: States) {
+    const currModel = parseProductsReqModel(
+      this.props.history.location.search,
+      this.state.getProductsModel
+    );
+
+    if (
+      prevStates.getProductsModel.brandId !== currModel.brandId ||
+      prevStates.getProductsModel.categoryId !== currModel.categoryId ||
+      prevStates.getProductsModel.page !== currModel.page
+    ) {
+      this.getProducts();
+    }
+  }
+
   getProducts = async () => {
-    const res = await getProductsAsync(this.state.getProductsModel);
+    const model = parseProductsReqModel(
+      this.props.history.location.search,
+      this.state.getProductsModel
+    );
+    this.setState({ getProductsModel: model });
+
+    const res = await getProductsAsync(model);
 
     const { totalPage, items, total } = res.data as BasePagingResModel<
       GetProductsResModel
@@ -63,4 +88,4 @@ class Products extends React.Component<Props, States> {
   }
 }
 
-export default Products;
+export default withRouter(Products);
