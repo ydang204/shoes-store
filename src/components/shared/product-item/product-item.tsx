@@ -2,36 +2,37 @@ import React from "react";
 
 import "./product-item.scss";
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
+import { withRouter, RouteComponentProps } from "react-router";
 
-interface Props {
+interface Props extends RouteComponentProps {
   product: GetProductsResModel;
 }
 
 const ProductItem: React.FC<Props> = props => {
+  const { product, history } = props;
+
+  const viewDetails = () => {
+    history.push(`product-details/${product.slugName}`);
+  };
+
   return (
     <div className="col-md-3 col-sm-6">
       <div className="product-item">
         <div className="product-image">
           <a href="#">
-            <img
-              className="pic-1"
-              src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-1.jpg"
-            />
-            <img
-              className="pic-2"
-              src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg"
-            />
+            <img className="pic-1" src={product.productImages[0].imageUrl} />
+            <img className="pic-2" src={product.productImages[1].imageUrl} />
           </a>
           <ul className="social">
             <li>
-              <a
-                href=""
-                className="fa fa-shopping-bag"
+              <p
+                onClick={viewDetails}
+                className="fa fa-eye"
                 title="Xem chi tiết"
-              ></a>
+              ></p>
             </li>
             <li>
-              <a href="" className="fa fa-shopping-cart" title="Mua hàng"></a>
+              <p className="fa fa-shopping-cart" title="Mua hàng"></p>
             </li>
           </ul>
           <span className="product-like">
@@ -46,12 +47,12 @@ const ProductItem: React.FC<Props> = props => {
         <div className="product-content">
           <div className="title">
             <h5>
-              <a href="#"> KINH MAT NU AH13</a>
+              <a href="#">{product.name}</a>
             </h5>
           </div>
           <div>
             <button type="button" className="btn btn-outline-warning">
-              100K
+              {product.price}
             </button>
           </div>
         </div>
@@ -60,4 +61,4 @@ const ProductItem: React.FC<Props> = props => {
   );
 };
 
-export default ProductItem;
+export default withRouter(ProductItem);
