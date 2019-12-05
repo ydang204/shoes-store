@@ -6,7 +6,8 @@ interface Props {}
 
 const ProductItem: React.FC<Props> = props => {
   return (
-    <div className="product-item">
+    <div className="col-md-3 col-sm-6">
+      <div className="product-item">
         <div className="product-image">
           <a href="#">
             <img
@@ -32,7 +33,10 @@ const ProductItem: React.FC<Props> = props => {
           </ul>
           <span className="product-like">
             <a href="">
-              <i className="fa fa-heart" title="yêu thích"> 1</i>
+              <i className="fa fa-heart" title="yêu thích">
+                {" "}
+                1
+              </i>
             </a>
           </span>
         </div>
@@ -48,6 +52,7 @@ const ProductItem: React.FC<Props> = props => {
             </button>
           </div>
         </div>
+      </div>
     </div>
   );
 };
