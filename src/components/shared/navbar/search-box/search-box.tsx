@@ -34,11 +34,7 @@ class SearchBox extends React.Component<Props, States> {
 
   handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
-      this.props.history.push({
-        pathname: "/search",
-        search: this.state.query,
-        state: { query: this.state.query }
-      });
+      this.props.history.push(`/search?query=${this.state.query}`);
     }
   };
 

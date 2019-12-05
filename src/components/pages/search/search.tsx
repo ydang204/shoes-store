@@ -1,5 +1,10 @@
 ﻿import React, { Component, Fragment } from "react";
-import { withRouter, RouteComponentProps } from "react-router";
+import qs from "qs";
+import {
+  withRouter,
+  RouteComponentProps,
+  RouteChildrenProps
+} from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
@@ -26,15 +31,19 @@ class Search extends Component<Props, States> {
   }
 
   componentDidMount() {
-    let param = this.props.history.location.state;
-    this.setState({ queryTag: param.query });
+    const params = qs.parse(this.props.history.location.search, {
+      ignoreQueryPrefix: true
+    });
+    this.setState({ queryTag: params.query });
   }
 
   componentDidUpdate(prevProps: Props, prevState: any) {
-    let param = this.props.history.location.state;
+    const params = qs.parse(this.props.history.location.search, {
+      ignoreQueryPrefix: true
+    });
 
-    if (param.query != prevState.queryTag) {
-      this.setState({ queryTag: param.query });
+    if (params.query != prevState.queryTag) {
+      this.setState({ queryTag: params.query });
     }
   }
 
@@ -51,14 +60,6 @@ class Search extends Component<Props, States> {
         </div>
       ) : (
         <Fragment>
-          {/* <button
-            hidden={this.state.queryTag == ""}
-            className="btn hash-tag ng-star-inserted"
-            onClick={this.removeQueryTag}
-          >
-            <i className="fa fa-close" />
-            <span>{this.state.queryTag}</span>
-          </button> */}
           <div className="grid-container">
             <div className="row">
               <div className="col-md-3 col-sm-6">

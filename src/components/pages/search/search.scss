@@ -1,28 +1,33 @@
-.container {
-    .wrapper {
-        display: block !important;
-        .content{
-          background-color: #fff;
-            height: auto;
-            width: auto;
-          .text-center{
-            padding-bottom: 55px;
-          }
-          .btn.hash-tag.ng-star-inserted {
-              margin-left: 50px;
-              margin-top: 10px;
-              background-color: #ebebeb;
-              border-radius: 30px;
-              height: 40px;
-              width: auto;
-              min-width: 300px;
-              font-size: 16px;
-              min-width: 65px; 
-              margin-bottom: 20px;  
-              span{
-                margin-left: 5px;
-              }
-          }
+.search-container {
+  .wrapper {
+    display: block !important;
+    margin: 0 auto;
+
+    .content {
+      background-color: #fff;
+      height: auto;
+      width: auto;
+
+      .text-center {
+        padding-bottom: 55px;
+      }
+
+      .btn.hash-tag.ng-star-inserted {
+        margin-left: 50px;
+        margin-top: 10px;
+        background-color: #ebebeb;
+        border-radius: 30px;
+        height: 40px;
+        width: auto;
+        min-width: 300px;
+        font-size: 16px;
+        min-width: 65px;
+        margin-bottom: 20px;
+
+        span {
+          margin-left: 5px;
+        }
       }
     }
   }
+}
