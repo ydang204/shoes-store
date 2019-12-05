@@ -8,10 +8,19 @@ import GoogleLogin from "react-google-login";
 
 interface Props extends ModalProps {
   toggleRegisterModel: () => void;
+  handleInputChange: (event: any) => void;
+  handleSubmit: () => Promise<void>;
 }
 
 const Login: React.FC<Props> = props => {
-  const { isOpen, toggleModal, className, toggleRegisterModel } = props;
+  const {
+    isOpen,
+    toggleModal,
+    className,
+    toggleRegisterModel,
+    handleInputChange,
+    handleSubmit
+  } = props;
 
   const responseFacebook = (response: any) => {
     console.log(response);
@@ -50,18 +59,20 @@ const Login: React.FC<Props> = props => {
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                 >
-                  <div className='google'>
+                  <div className="google">
                     <i className="fa fa-google-plus" />
-                    <span>&nbsp;Đăng nhập với Google</span> </div>
+                    <span>&nbsp;Đăng nhập với Google</span>{" "}
+                  </div>
                 </GoogleLogin>
               </div>
               <br />
               <div className="form-group">
                 <input
                   className="form-control"
-                  placeholder="Tên đăng nhập/ Email"
-                  name="email"
+                  placeholder="Tên đăng nhập"
+                  name="userName"
                   type="text"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="form-group">
@@ -70,21 +81,21 @@ const Login: React.FC<Props> = props => {
                   placeholder="Mật khẩu"
                   name="password"
                   type="password"
+                  onChange={handleInputChange}
                 />
               </div>
               <input
                 className="btn btn-lg btn-warning btn-block"
-                type="submit"
+                type="button"
                 value="Đăng nhập"
+                onClick={handleSubmit}
               ></input>
             </form>
             <hr></hr>
           </div>
-          Chưa có tài khoản? 
-          <a href="#" data-toggle="modal"
-            onClick={toggleRegisterModel}
-          >
-             Đăng ký ngay!
+          Chưa có tài khoản?
+          <a href="#" onClick={toggleRegisterModel}>
+            &nbsp;Đăng ký ngay!
           </a>
         </ModalBody>
       </Modal>
