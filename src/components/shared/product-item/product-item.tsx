@@ -25,7 +25,9 @@ const ProductItem: React.FC<Props> = props => {
     <div className="col-md-3 col-sm-6">
       <div className="product-item">
         <div className="product-image">
-          <a href="#">{images}</a>
+          <a style={{ cursor: "pointer" }} onClick={viewDetails}>
+            {images}
+          </a>
           <ul className="social">
             <li>
               <p
