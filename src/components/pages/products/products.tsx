@@ -13,6 +13,7 @@ import {
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import BasePagingResModel from "../../../_models/shared/base-paging-res-model";
 import { RouteComponentProps, withRouter } from "react-router";
+import Pagination from "../../shared/pagination/pagination";
 
 interface Props extends RouteComponentProps {}
 
@@ -82,6 +83,7 @@ class Products extends React.Component<Props, States> {
         <Breadcrumb items={breadcrumbItems} />
         <div className="products-container container">
           <div className="row">{products}</div>
+          <Pagination />
         </div>
       </Fragment>
     );
