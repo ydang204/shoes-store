@@ -3,6 +3,7 @@ import React from "react";
 import "./product-item.scss";
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import { withRouter, RouteComponentProps } from "react-router";
+import { currencyFormat } from "../../../_cores/utils/helpers";
 
 interface Props extends RouteComponentProps {
   product: GetProductsResModel;
@@ -53,8 +54,8 @@ const ProductItem: React.FC<Props> = props => {
             </h5>
           </div>
           <div>
-            <button type="button" className="btn btn-outline-warning">
-              {product.price}
+            <button type="button" className="btn btn-outline-warning price">
+              {currencyFormat(product.price)}
             </button>
           </div>
         </div>

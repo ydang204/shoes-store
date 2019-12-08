@@ -26,21 +26,26 @@ const Pagination: React.FC<Props> = props => {
   }
 
   return (
-    <div className="row">
-      <ul className="pagination">
-        <li className="page-item">
-          <a className="page-link" onClick={() => handlePageChange(1)}>
-            «
-          </a>
-        </li>
-        {pages}
-        <li className="page-item">
-          <a className="page-link" onClick={() => handlePageChange(totalPage)}>
-            »
-          </a>
-        </li>
-      </ul>
-    </div>
+    pages && (
+      <div className="row">
+        <ul className="pagination">
+          <li className="page-item">
+            <a className="page-link" onClick={() => handlePageChange(1)}>
+              «
+            </a>
+          </li>
+          {pages}
+          <li className="page-item">
+            <a
+              className="page-link"
+              onClick={() => handlePageChange(totalPage)}
+            >
+              »
+            </a>
+          </li>
+        </ul>
+      </div>
+    )
   );
 };
 export default Pagination;
