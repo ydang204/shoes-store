@@ -31,7 +31,8 @@ class Products extends React.Component<Props, States> {
     this.state = {
       getProductsModel: {
         page: 1,
-        pageSize: 12
+        pageSize: 12,
+        name: ""
       },
       products: [],
       total: 0,

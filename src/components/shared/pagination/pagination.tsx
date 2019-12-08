@@ -25,27 +25,22 @@ const Pagination: React.FC<Props> = props => {
     pages.push(currentPage);
   }
 
-  return (
-    pages && (
-      <div className="row">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" onClick={() => handlePageChange(1)}>
-              «
-            </a>
-          </li>
-          {pages}
-          <li className="page-item">
-            <a
-              className="page-link"
-              onClick={() => handlePageChange(totalPage)}
-            >
-              »
-            </a>
-          </li>
-        </ul>
-      </div>
-    )
-  );
+  return totalPage > 0 ? (
+    <div className="row">
+      <ul className="pagination">
+        <li className="page-item">
+          <a className="page-link" onClick={() => handlePageChange(1)}>
+            «
+          </a>
+        </li>
+        {pages}
+        <li className="page-item">
+          <a className="page-link" onClick={() => handlePageChange(totalPage)}>
+            »
+          </a>
+        </li>
+      </ul>
+    </div>
+  ) : null;
 };
 export default Pagination;

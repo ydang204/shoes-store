@@ -12,7 +12,7 @@ export const parseProductsReqModel = (url: string, oldModel: GetProductsReqModel
         ignoreQueryPrefix: true
     });
 
-    const { brand, category, page } = params;
+    const { brand, category, page, query } = params;
 
     const brandId = brand && +brand.split("-").pop();
     const categoryId = category && +category.split("-").pop();
@@ -21,7 +21,8 @@ export const parseProductsReqModel = (url: string, oldModel: GetProductsReqModel
         ...oldModel,
         brandId: brandId,
         categoryId: categoryId,
-        page: page
+        page: page,
+        name: query
     };
 
     return model;
