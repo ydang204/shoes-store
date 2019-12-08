@@ -8,6 +8,7 @@ import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
 import { RouteComponentProps } from "react-router";
 import ProductDetailsResModel from "../../../_models/product-api/res-model/product-details-res-model";
 import { getProductDetailsAsync } from "../../../_services/products-api/product-service";
+import { currencyFormat } from "../../../_cores/utils/helpers";
 
 interface Props extends RouteComponentProps {}
 
@@ -97,7 +98,7 @@ class ProductDetails extends Component<Props, States> {
                         <tr>
                           <td className="price">Giá:</td>
                           <td className="price">
-                            <span>{product.price}</span>
+                            <span>{currencyFormat(product.price)}</span>
                           </td>
                         </tr>
                         <tr>
@@ -105,9 +106,11 @@ class ProductDetails extends Component<Props, States> {
                           <td>
                             <input
                               type="number"
+                              className="form-control"
                               name="number"
                               defaultValue="1"
-                              style={{ width: "50px" }}
+                              min="0"
+                              style={{ width: "75px" }}
                             />
                           </td>
                         </tr>
@@ -152,11 +155,11 @@ class ProductDetails extends Component<Props, States> {
                   <tbody>
                     <tr>
                       <td>Danh mục</td>
-                      <td>Giày trơn</td>
+                      <td>{product.categoryName}</td>
                     </tr>
                     <tr>
                       <td>Thương hiệu</td>
-                      <td> Mina</td>
+                      <td>{product.brandName}</td>
                     </tr>
                     <tr>
                       <td>Chất liệu</td>
@@ -164,7 +167,7 @@ class ProductDetails extends Component<Props, States> {
                     </tr>
                     <tr>
                       <td>Xuất sứ</td>
-                      <td>Anh</td>
+                      <td>Việt Nam</td>
                     </tr>
                   </tbody>
                 </table>
@@ -189,19 +192,18 @@ class ProductDetails extends Component<Props, States> {
             <div style={{ marginTop: "10px" }} className="danhgia1">
               <div>
                 <strong style={{ padding: "5px" }}>
-                  Viết đánh giá của bạn:{" "}
+                  Viết đánh giá của bạn:
                 </strong>
               </div>
-              <div style={{ marginLeft: "38px" }}>
+              <div>
                 <textarea
+                  style={{ marginTop: "20px", padding: "10px" }}
                   cols={120}
-                  rows={1}
-                  name="string"
+                  rows={4}
+                  name="feedback"
+                  className="form-control"
                   wrap="OFF"
-                  style={{ padding: "10px" }}
-                >
-                  {" "}
-                </textarea>
+                ></textarea>
               </div>
               <button type="submit" name="Gui" className="btn btn-warning">
                 Gửi nhận xét
