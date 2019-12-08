@@ -56,6 +56,7 @@ class Products extends React.Component<Props, States> {
       prevStates.getProductsModel.page !== currModel.page
     ) {
       this.getProducts();
+      window.scrollTo(0, 0);
     }
   }
 
