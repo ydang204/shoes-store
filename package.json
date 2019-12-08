@@ -64,6 +64,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.9",
     "@types/react-bootstrap-typeahead": "^3.4.5",
+    "@types/react-image-magnify": "^2.7.0",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-slick": "^0.23.4",
     "@types/reactstrap": "^8.0.6",

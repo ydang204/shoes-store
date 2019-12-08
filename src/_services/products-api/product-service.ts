@@ -38,3 +38,9 @@ export const getProductsAsync = (model: GetProductsReqModel): Promise<AxiosRespo
     return getAsync(url, model);
 };
 
+
+export const getProductDetailsAsync = (slug: string): Promise<AxiosResponse> => {
+    const url = `${PRODUCT_URL}/slug/${slug}`;
+    return getAsync(url);
+};
+
