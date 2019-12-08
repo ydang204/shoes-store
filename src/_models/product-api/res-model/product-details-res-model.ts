@@ -9,7 +9,7 @@ export default interface ProductDetailsResModel {
     productImages: ProductDetailsImage[];
 }
 
-interface ProductDetailsImage {
+export interface ProductDetailsImage {
     imageUrl: string;
 }
 

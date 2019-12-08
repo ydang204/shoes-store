@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ProductItem from "../../shared/product-item/product-item";
+
 import "./product-details.scss";
 import Grid from "@material-ui/core/Grid";
-import MyImageGallery from "./MyImageGallery";
+import ProductImageGallery from "./image-gallery";
 import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
 import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
 import { RouteComponentProps } from "react-router";
@@ -12,7 +12,7 @@ import { getProductDetailsAsync } from "../../../_services/products-api/product-
 interface Props extends RouteComponentProps {}
 
 interface States {
-  product: Partial<ProductDetailsResModel>;
+  product: ProductDetailsResModel;
   slug: string;
 }
 
@@ -20,7 +20,16 @@ class ProductDetails extends Component<Props, States> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      product: {},
+      product: {
+        brand: { id: 0, slugName: "", name: "" },
+        brandName: "",
+        category: { id: 0, slugName: "", name: "" },
+        categoryName: "",
+        name: "",
+        price: 0,
+        productImages: [],
+        slugName: ""
+      },
       slug: ""
     };
   }
@@ -54,7 +63,9 @@ class ProductDetails extends Component<Props, States> {
                   <Grid container spacing={5}>
                     <Grid item xs={12} sm={12}>
                       {/* anh lay tu  MyImageGallery */}
-                      <MyImageGallery />
+                      <ProductImageGallery
+                        productImages={product.productImages}
+                      />
                     </Grid>
                     <Grid container spacing={2} item xs={12} direction="column">
                       <Grid item xs={12} sm={12}>
@@ -111,7 +122,7 @@ class ProductDetails extends Component<Props, States> {
                                 className="fa fa-cart-plus"
                                 style={{ marginRight: "5px", fontSize: "20px" }}
                               />
-                              Thêm vào giở hàng
+                              Thêm vào giỏ hàng
                             </button>
                           </td>
                           <td>
