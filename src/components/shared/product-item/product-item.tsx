@@ -50,7 +50,9 @@ const ProductItem: React.FC<Props> = props => {
         <div className="product-content">
           <div className="title">
             <h5>
-              <a href="#">{product.name}</a>
+              <p onClick={viewDetails} title={product.name} className="name">
+                {product.name}
+              </p>
             </h5>
           </div>
           <div>
