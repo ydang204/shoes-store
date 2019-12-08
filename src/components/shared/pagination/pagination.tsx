@@ -4,25 +4,25 @@ import classnames from "classnames";
 import "./pagination.scss";
 
 interface Props {
-  pageIndex: number;
+  page: number;
   totalPage: number;
   handlePageChange: (page: number) => void;
 }
 
 const Pagination: React.FC<Props> = props => {
-  const { pageIndex, totalPage, handlePageChange } = props;
+  const { page, totalPage, handlePageChange } = props;
 
   let pages = [];
 
   for (let index = 1; index <= totalPage; index++) {
-    const page = (
-      <li className={classnames("page-item", { active: index === pageIndex })}>
+    const currentPage = (
+      <li className={classnames("page-item", { active: index === page })}>
         <a className="page-link" onClick={() => handlePageChange(index)}>
           {index}
         </a>
       </li>
     );
-    pages.push(page);
+    pages.push(currentPage);
   }
 
   return (

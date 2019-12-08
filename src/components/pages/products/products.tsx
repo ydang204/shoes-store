@@ -22,6 +22,7 @@ interface States {
   products: GetProductsResModel[];
   total: number;
   totalPage: number;
+  page: number;
 }
 
 class Products extends React.Component<Props, States> {
@@ -34,7 +35,8 @@ class Products extends React.Component<Props, States> {
       },
       products: [],
       total: 0,
-      totalPage: 0
+      totalPage: 0,
+      page: 0
     };
   }
 
@@ -66,10 +68,18 @@ class Products extends React.Component<Props, States> {
 
     const res = await getProductsAsync(model);
 
-    const { totalPage, items, total } = res.data as BasePagingResModel<
+    const { totalPage, items, total, page } = res.data as BasePagingResModel<
       GetProductsResModel
     >;
-    this.setState({ products: items, total: total, totalPage });
+    this.setState({ products: items, total: total, totalPage, page });
+  };
+
+  handlePageChange = (page: number) => {
+    let currentUrlParams = new URLSearchParams(this.props.location.search);
+    currentUrlParams.set("page", page.toString());
+    this.props.history.push(
+      this.props.location.pathname + "?" + currentUrlParams.toString()
+    );
   };
 
   render() {
@@ -84,9 +94,9 @@ class Products extends React.Component<Props, States> {
         <div className="products-container container">
           <div className="row">{products}</div>
           <Pagination
-            pageIndex={1}
-            totalPage={10}
-            handlePageChange={() => console.log()}
+            page={this.state.page}
+            totalPage={this.state.totalPage}
+            handlePageChange={this.handlePageChange}
           />
         </div>
       </Fragment>
