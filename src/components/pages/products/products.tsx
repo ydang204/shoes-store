@@ -83,7 +83,11 @@ class Products extends React.Component<Props, States> {
         <Breadcrumb items={breadcrumbItems} />
         <div className="products-container container">
           <div className="row">{products}</div>
-          <Pagination />
+          <Pagination
+            pageIndex={1}
+            totalPage={10}
+            handlePageChange={() => console.log()}
+          />
         </div>
       </Fragment>
     );

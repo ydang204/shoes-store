@@ -1,42 +1,41 @@
 import React from "react";
+import classnames from "classnames";
+
 import "./pagination.scss";
 
-const Pagination: React.FC = () => {
+interface Props {
+  pageIndex: number;
+  totalPage: number;
+  handlePageChange: (page: number) => void;
+}
+
+const Pagination: React.FC<Props> = props => {
+  const { pageIndex, totalPage, handlePageChange } = props;
+
+  let pages = [];
+
+  for (let index = 1; index <= totalPage; index++) {
+    const page = (
+      <li className={classnames("page-item", { active: index === pageIndex })}>
+        <a className="page-link" onClick={() => handlePageChange(index)}>
+          {index}
+        </a>
+      </li>
+    );
+    pages.push(page);
+  }
+
   return (
     <div className="row">
       <ul className="pagination">
         <li className="page-item">
-          <a href="#" className="page-link">
+          <a className="page-link" onClick={() => handlePageChange(1)}>
             «
           </a>
         </li>
-        <li className="page-item active">
-          <a href="#" className="page-link">
-            1
-          </a>
-        </li>
+        {pages}
         <li className="page-item">
-          <a href="#" className="page-link">
-            2
-          </a>
-        </li>
-        <li className="page-item">
-          <a href="#" className="page-link">
-            3
-          </a>
-        </li>
-        <li className="page-item">
-          <a href="#" className="page-link">
-            4
-          </a>
-        </li>
-        <li className="page-item">
-          <a href="#" className="page-link">
-            5
-          </a>
-        </li>
-        <li className="page-item">
-          <a href="#" className="page-link">
+          <a className="page-link" onClick={() => handlePageChange(totalPage)}>
             »
           </a>
         </li>
