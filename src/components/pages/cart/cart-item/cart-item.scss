@@ -1,42 +1,48 @@
 .cart-container {
-  .total{
+  .total {
     float: left;
-    .row1 { 
+
+    .row1 {
       width: 650px;
       background-color: #fff;
       margin-top: 10px;
       height: auto;
       margin-top: 10px;
-      .number1{
+
+      .number1 {
         width: 70px;
         margin-left: 10px;
       }
-      .btn{
+
+      .btn {
         font-size: 24px;
       }
     }
-    .row2{
+
+    .row2 {
       width: 270px;
       margin-top: auto;
       float: right;
       margin-right: 15px;
-        .title {
-          color: #000;
-          margin-top: 5px;
-          display: inline-block;
-        }
-        .price {
-          float: right;
-          color: #f7ca55;
-          font-size: 22px;
-          font-weight: 400;
-        }
+
+      .title {
+        color: #000;
+        margin-top: 5px;
+        display: inline-block;
       }
-    
-      .btn-checkout {
-        margin-top: 8px;
-        padding: 10px;
-        width: 18em;
+
+      .price {
+        float: right;
+        color: #f7ca55;
+        font-size: 22px;
+        font-weight: 400;
       }
+    }
+
+    .btn-checkout {
+      margin-top: 8px;
+      padding: 10px;
+      width: 18em;
+    }
   }
 }
