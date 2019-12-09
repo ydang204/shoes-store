@@ -1,45 +1,34 @@
-﻿import React, { Component, Fragment } from "react";
-import qs from "qs";
-import {
-  withRouter,
-  RouteComponentProps,
-  RouteChildrenProps
-} from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
+import React, { Fragment } from "react";
 
-import ProductItem from "../../shared/product-item/product-item";
-import { compose } from "recompose";
+import "./products.scss";
 
 import BreadcrumbItem from "../../../_models/shared/breadcrumb-item";
-import "./search.scss";
-import withBreadcrumb from "../../shared/breadcrumb/with-breadcrumb";
+import Breadcrumb from "../../shared/breadcrumb/breadcrumb";
+import ProductItem from "../../shared/product-item/product-item";
 import GetProductsReqModel from "../../../_models/product-api/req-model/get-product-req-model";
-import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import {
-  parseProductsReqModel,
-  getProductsAsync
+  getProductsAsync,
+  parseProductsReqModel
 } from "../../../_services/products-api/product-service";
+import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import BasePagingResModel from "../../../_models/shared/base-paging-res-model";
+import { RouteComponentProps, withRouter } from "react-router";
 import Pagination from "../../shared/pagination/pagination";
 
 interface Props extends RouteComponentProps {}
 
-type States = {
-  queryTag: string;
+interface States {
   getProductsModel: GetProductsReqModel;
   products: GetProductsResModel[];
   total: number;
   totalPage: number;
   page: number;
-};
+}
 
-class Search extends Component<Props, States> {
+class Products extends React.Component<Props, States> {
   constructor(props: Props) {
     super(props);
-
     this.state = {
-      queryTag: "",
       getProductsModel: {
         page: 1,
         pageSize: 12,
@@ -53,23 +42,10 @@ class Search extends Component<Props, States> {
   }
 
   componentDidMount() {
-    const params = qs.parse(this.props.history.location.search, {
-      ignoreQueryPrefix: true
-    });
-    this.setState({ queryTag: params.query });
-
     this.getProducts();
   }
 
   componentDidUpdate(prevProps: Props, prevStates: States) {
-    const params = qs.parse(this.props.history.location.search, {
-      ignoreQueryPrefix: true
-    });
-
-    if (params.query != prevStates.queryTag) {
-      this.setState({ queryTag: params.query });
-    }
-
     const currModel = parseProductsReqModel(
       this.props.history.location.search,
       this.state.getProductsModel
@@ -109,17 +85,15 @@ class Search extends Component<Props, States> {
   };
 
   render() {
+    const breadcrumbItems: BreadcrumbItem[] = [{ name: "Sản phẩm" }];
     const products = this.state.products.map(p => (
       <ProductItem product={p} key={p.slugName} />
     ));
 
-    const displayResult =
-      this.state.products.length === 0 ? (
-        <div className="text-center p-3 pb-5">
-          Xin lỗi, chúng tôi không thể tìm thấy sản phẩm
-        </div>
-      ) : (
-        <div className="grid-container">
+    return (
+      <Fragment>
+        <Breadcrumb items={breadcrumbItems} />
+        <div className="products-container container">
           <div className="row">{products}</div>
           <Pagination
             page={this.state.page}
@@ -127,21 +101,9 @@ class Search extends Component<Props, States> {
             handlePageChange={this.handlePageChange}
           />
         </div>
-      );
-
-    return (
-      <div className="container breadcrumb-container">
-        <div className="wrapper">
-          <div className="content">{displayResult}</div>
-        </div>
-      </div>
+      </Fragment>
     );
   }
 }
 
-const breadcrumbItems: BreadcrumbItem[] = [{ name: "Tìm kiếm" }];
-
-export default compose<Props, {}>(
-  withRouter,
-  withBreadcrumb(breadcrumbItems)
-)(Search);
+export default withRouter(Products);

@@ -16,6 +16,7 @@ import {
   messaging
 } from "./_cores/utils/firebase-messaging";
 import Checkout from "./components/pages/check-out/check-out";
+import Products from "./components/pages/products/products";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -35,21 +36,17 @@ const App: React.FC = () => {
         <Switch>
           <Route>
             <RouteLayout path="/checkout" component={Checkout} />
+            <RouteLayout path="/products" component={Products} />
             <RouteLayout path="/login" component={Login} />
             <RouteLayout path="/search" component={Search} />
-            <RouteLayout exact path="/" component={Home} />
-            <RouteLayout exact path="/cart" component={Cart} />
+            <RouteLayout path="/cart" component={Cart} />
             <RouteLayout
-              exact
-              path="/product-details"
+              path="/product-details/:slug"
               component={ProductDetails}
             />
-            <RouteLayout exact path="/history" component={History} />
-            <RouteLayout
-              exact
-              path="/history/detail"
-              component={OrderDetails}
-            />
+            <RouteLayout path="/history" component={History} />
+            <RouteLayout path="/history/detail" component={OrderDetails} />
+            <RouteLayout exact path="/" component={Home} />
           </Route>
         </Switch>
       </BrowserRouter>

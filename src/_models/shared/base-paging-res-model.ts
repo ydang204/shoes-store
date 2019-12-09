@@ -1,4 +1,4 @@
-interface BasePagingResModel<T> {
+export default interface BasePagingResModel<T> {
     items: T[];
     page: number;
     pageSize: number;
@@ -6,5 +6,4 @@ interface BasePagingResModel<T> {
     totalPage: number;
 }
 
-export default BasePagingResModel;
 
