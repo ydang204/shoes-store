@@ -41,6 +41,7 @@ class Home extends React.Component<Props, States> {
   getNewProducts = async () => {
     const model: GetProductsReqModel = {
       pageSize: 12,
+      page: 5,
       sortNames: ["CreatedAt"],
       sortDirections: [OrderDirection.OrderByDescending]
     };
@@ -53,7 +54,8 @@ class Home extends React.Component<Props, States> {
 
   getTrendingProducts = async () => {
     const model: GetProductsReqModel = {
-      pageSize: 12
+      pageSize: 12,
+      page: 2
     };
 
     const res = await getProductsAsync(model);

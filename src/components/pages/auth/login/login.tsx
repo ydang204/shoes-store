@@ -54,7 +54,7 @@ const Login: React.FC<Props> = props => {
                 />
                 <GoogleLogin
                   className="login-google"
-                  icon={false}
+                  // icon={false}
                   clientId={googleClientId}
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}

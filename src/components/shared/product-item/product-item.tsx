@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 
 import "./product-item.scss";
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
@@ -7,10 +8,11 @@ import { currencyFormat } from "../../../_cores/utils/helpers";
 
 interface Props extends RouteComponentProps {
   product: GetProductsResModel;
+  isHomeProduct: boolean;
 }
 
 const ProductItem: React.FC<Props> = props => {
-  const { product, history } = props;
+  const { product, history, isHomeProduct } = props;
 
   const viewDetails = () => {
     history.push(`product-details/${product.slugName}`);
@@ -22,7 +24,7 @@ const ProductItem: React.FC<Props> = props => {
   });
 
   return (
-    <div className="col-md-3 col-sm-6">
+    <div className={classnames({ "col-md-3 col-sm-6": !isHomeProduct })}>
       <div className="product-item">
         <div className="product-image">
           <a style={{ cursor: "pointer" }} onClick={viewDetails}>

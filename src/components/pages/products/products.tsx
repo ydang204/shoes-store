@@ -87,7 +87,7 @@ class Products extends React.Component<Props, States> {
   render() {
     const breadcrumbItems: BreadcrumbItem[] = [{ name: "Sản phẩm" }];
     const products = this.state.products.map(p => (
-      <ProductItem product={p} key={p.slugName} />
+      <ProductItem product={p} key={p.slugName} isHomeProduct={false} />
     ));
 
     return (
