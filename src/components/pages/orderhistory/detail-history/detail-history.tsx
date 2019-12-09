@@ -86,12 +86,11 @@ const Detail: React.FC = () => {
                             <p className="price">150.000.000đ</p>
                             </div>
                         </div>
-                        
                         </form>
-          </div>
-          </div>
+                    </div>
                 </div>
             </div>
+        </div>
     );
 }
 

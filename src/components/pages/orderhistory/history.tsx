@@ -115,7 +115,6 @@ const History: React.FC = () => {
                         </tr>
                     </tbody>
                 </table>
-         
                 <Pagination />
             </div>
     );
