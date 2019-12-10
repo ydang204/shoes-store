@@ -5,10 +5,17 @@ import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 import "./cart-item.scss";
 import { currencyFormat } from "../../../../_cores/utils/helpers";
+import { OrderProduct } from "../../../../_models/order-api/create-order-req-model";
+import GetProductsResModel from "../../../../_models/product-api/res-model/get-products-res-model";
 
-interface Props {}
+interface Props {
+  products: GetProductsResModel[];
+  total: number;
+}
 
 const CartItem: React.FC<Props> = props => {
+  const { products, total } = props;
+
   return (
     <div className="total">
       <div className="row1">
@@ -51,7 +58,7 @@ const CartItem: React.FC<Props> = props => {
               <p className="title">Tạm tính:</p>
             </div>
             <div className="col-md-6">
-              <p className="price">{currencyFormat(100000)}</p>
+              <p className="price">{currencyFormat(total)}</p>
             </div>
           </div>
           <div className="row total2 col-xs-auto">
@@ -59,7 +66,7 @@ const CartItem: React.FC<Props> = props => {
               <p className="title">Thành tiền:</p>
             </div>
             <div className="col-md-6">
-              <p className="price">{currencyFormat(100000)}</p>
+              <p className="price">{currencyFormat(total)}</p>
             </div>
           </div>
         </form>

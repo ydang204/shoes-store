@@ -3,6 +3,7 @@ import qs from 'qs';
 import { postAsync, getAsync } from "../../_cores/utils/http-client";
 import SearchProductReqModel from "../../_models/product-api/req-model/search-product-req-model";
 import GetProductsReqModel from "../../_models/product-api/req-model/get-product-req-model";
+import GetProductByIdsReqModel from "../../_models/product-api/req-model/get-product-by-ids-req-model";
 
 const PRODUCT_URL = 'api/v1/product/products';
 
@@ -45,3 +46,7 @@ export const getProductDetailsAsync = (slug: string): Promise<AxiosResponse> => 
     return getAsync(url);
 };
 
+export const getProductByIdsAsync = (model: GetProductByIdsReqModel) => {
+    const url = PRODUCT_URL + '/get-by-ids';
+    return getAsync(url, model)
+};

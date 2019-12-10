@@ -8,7 +8,8 @@ export interface CreateOrderReqModel {
     products: OrderProduct[];
 }
 
-interface OrderProduct {
+export interface OrderProduct {
     id: number;
     count: number;
+    price: number;
 }
