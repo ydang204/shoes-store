@@ -89,6 +89,10 @@
                         }
                     }
 
+                    .checkmark.checked {
+                        background-color: #e24309 !important;
+                    }
+
                     .payment-method_icon {
                         min-width: 75px;
                         padding: 0 18px 0 20px;

@@ -4,9 +4,9 @@ import LoginReqModel from "../../_models/user-api/req-model/login-req-model";
 import { CreateOrderReqModel, OrderProduct } from "../../_models/order-api/create-order-req-model";
 import { Subject } from 'rxjs';
 
-const ORDER_URL = 'api/v1/order/auth';
+const ORDER_URL = 'api/v1/order/orders';
 
-export const createOrder = (model: CreateOrderReqModel): Promise<AxiosResponse> => {
+export const createOrderAsync = (model: CreateOrderReqModel): Promise<AxiosResponse> => {
     return postAsync(ORDER_URL, model);
 };
 

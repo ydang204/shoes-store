@@ -4,6 +4,7 @@ export interface CreateOrderReqModel {
     email: string;
     note: string;
     paymentMethod: string;
+    receiver: string;
     total: number;
     products: OrderProduct[];
 }
