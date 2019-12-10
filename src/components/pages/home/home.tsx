@@ -15,12 +15,17 @@ import {
   NextArrow,
   PrevArrow
 } from "../../shared/carousel-arrow/carousel-arrow";
+import { RouteComponentProps, withRouter } from "react-router";
+import qs from "qs";
+import PaymentSuccessModal from "./success-payment-modal/success-payment-modal";
 
-interface Props {}
+interface Props extends RouteComponentProps {}
 
 interface States {
   trendingProducts: GetProductsResModel[];
   newProducts: GetProductsResModel[];
+  isOpenSuccessModal: boolean;
+  amount: number;
 }
 
 class Home extends React.Component<Props, States> {
@@ -29,13 +34,16 @@ class Home extends React.Component<Props, States> {
 
     this.state = {
       newProducts: [],
-      trendingProducts: []
+      trendingProducts: [],
+      isOpenSuccessModal: false,
+      amount: 0
     };
   }
 
   componentDidMount() {
     this.getNewProducts();
     this.getTrendingProducts();
+    this.parseQueryParams();
   }
 
   getNewProducts = async () => {
@@ -62,6 +70,17 @@ class Home extends React.Component<Props, States> {
 
     const { items } = res.data as BasePagingResModel<GetProductsResModel>;
     this.setState({ trendingProducts: items });
+  };
+
+  parseQueryParams = () => {
+    const params = qs.parse(this.props.history.location.search, {
+      ignoreQueryPrefix: true
+    });
+    const { message, amount } = params;
+    console.log(params);
+    if (message === "Success") {
+      this.setState({ isOpenSuccessModal: true, amount: amount });
+    }
   };
 
   render() {
@@ -112,9 +131,18 @@ class Home extends React.Component<Props, States> {
           settings={sliderSettings}
           products={this.state.newProducts}
         />
+        <PaymentSuccessModal
+          amount={this.state.amount}
+          isOpen={this.state.isOpenSuccessModal}
+          toggleModal={() =>
+            this.setState({
+              isOpenSuccessModal: !this.state.isOpenSuccessModal
+            })
+          }
+        />
       </div>
     );
   }
 }
 
-export default Home;
+export default withRouter(Home);
