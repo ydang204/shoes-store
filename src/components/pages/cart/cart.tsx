@@ -20,6 +20,8 @@ import GetProductsReqModel from "../../../_models/product-api/req-model/get-prod
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import { Subscription } from "rxjs";
 import { AccountLoginResModel } from "../../../_models/user-api/res-model/login-res-model";
+import CreateOrderResModel from "../../../_models/order-api/res-model/create-order-res-model";
+import { OrderStatusResModel } from "../../../_models/order-api/res-model/order-res-model";
 
 type Props = {};
 
@@ -93,9 +95,11 @@ class Cart extends React.Component<Props, States> {
   };
 
   submitOrder = async () => {
-    console.log(this.state.createOrderModel);
     const res = await createOrderAsync(this.state.createOrderModel);
-    console.log(res.data);
+    const data = res.data as CreateOrderResModel;
+    if (data.status === OrderStatusResModel.WaitingPayment) {
+      window.location.href = data.paymentUrl;
+    }
   };
 
   getProducts = async () => {
