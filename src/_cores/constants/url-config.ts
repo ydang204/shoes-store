@@ -1,5 +1,5 @@
 const urls = {
-  development: "http://localhost:9000/",
+  development: "https://67e9151b.ngrok.io/",
   production: "https://localhost:9000/"
 } as any;
 
