@@ -6,7 +6,7 @@ import GetProductsResModel from "../../../_models/product-api/res-model/get-prod
 import { withRouter, RouteComponentProps } from "react-router";
 import { currencyFormat } from "../../../_cores/utils/helpers";
 import { orderSubject } from "../../../_services/order-api/order-service";
-import { OrderProduct } from "../../../_models/order-api/create-order-req-model";
+import { OrderProduct } from "../../../_models/order-api/req-model/create-order-req-model";
 
 interface Props extends RouteComponentProps {
   product: GetProductsResModel;

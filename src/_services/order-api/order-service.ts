@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { postAsync, getAsync } from "../../_cores/utils/http-client";
 import LoginReqModel from "../../_models/user-api/req-model/login-req-model";
-import { CreateOrderReqModel, OrderProduct } from "../../_models/order-api/create-order-req-model";
+import { CreateOrderReqModel, OrderProduct } from "../../_models/order-api/req-model/create-order-req-model";
 import { Subject } from 'rxjs';
 
 const ORDER_URL = 'api/v1/order/orders';

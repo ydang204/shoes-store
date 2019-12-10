@@ -5,7 +5,7 @@ import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 import "./cart-item.scss";
 import { currencyFormat } from "../../../../_cores/utils/helpers";
-import { OrderProduct } from "../../../../_models/order-api/create-order-req-model";
+import { OrderProduct } from "../../../../_models/order-api/req-model/create-order-req-model";
 import GetProductsResModel from "../../../../_models/product-api/res-model/get-products-res-model";
 import { RouteComponentProps, withRouter } from "react-router";
 

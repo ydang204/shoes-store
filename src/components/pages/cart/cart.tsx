@@ -13,7 +13,7 @@ import {
 import {
   OrderProduct,
   CreateOrderReqModel
-} from "../../../_models/order-api/create-order-req-model";
+} from "../../../_models/order-api/req-model/create-order-req-model";
 import { getProductByIdsAsync } from "../../../_services/products-api/product-service";
 import GetProductByIdsReqModel from "../../../_models/product-api/req-model/get-product-by-ids-req-model";
 import GetProductsReqModel from "../../../_models/product-api/req-model/get-product-req-model";

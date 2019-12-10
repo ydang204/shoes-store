@@ -17,7 +17,7 @@ import {
 } from "./_cores/utils/firebase-messaging";
 import Checkout from "./components/pages/check-out/check-out";
 import Products from "./components/pages/products/products";
-import { OrderProduct } from "./_models/order-api/create-order-req-model";
+import { OrderProduct } from "./_models/order-api/req-model/create-order-req-model";
 
 interface Props {}
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "./information-customer.scss";
 import { Button } from "reactstrap";
-import { CreateOrderReqModel } from "../../../../_models/order-api/create-order-req-model";
+import { CreateOrderReqModel } from "../../../../_models/order-api/req-model/create-order-req-model";
 import classnames from "classnames";
 
 interface Props {
