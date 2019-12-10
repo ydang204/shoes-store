@@ -46,3 +46,25 @@
     }
   }
 }
+
+.cart-items {
+
+
+  .cart-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    display: block;
+
+    .image {
+      height: 150px;
+      width: 150px;
+
+      img {
+        height: 150px;
+        width: 150px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

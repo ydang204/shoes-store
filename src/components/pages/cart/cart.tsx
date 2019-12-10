@@ -72,6 +72,7 @@ class Cart extends React.Component<Props, States> {
         <div className="row">
           <CartItem
             products={this.state.products}
+            orderProducts={this.state.orderProducts}
             total={this.state.totalPrice}
           />
           <InformationCustomer />
