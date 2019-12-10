@@ -110,7 +110,7 @@ class Search extends Component<Props, States> {
 
   render() {
     const products = this.state.products.map(p => (
-      <ProductItem product={p} key={p.slugName} />
+      <ProductItem product={p} key={p.slugName} isHomeProduct={false} />
     ));
 
     const displayResult =

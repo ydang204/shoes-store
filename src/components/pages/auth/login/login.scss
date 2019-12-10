@@ -37,6 +37,14 @@
   border: 0px transparent;
   text-align: center !important;
 
+  div {
+    background: none !important;
+
+    svg {
+      display: none;
+    }
+  }
+
   .google {
     margin-left: 118px;
     font-size: 16px;

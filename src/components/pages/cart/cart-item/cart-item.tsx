@@ -4,10 +4,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 import "./cart-item.scss";
+import { currencyFormat } from "../../../../_cores/utils/helpers";
+import { OrderProduct } from "../../../../_models/order-api/create-order-req-model";
+import GetProductsResModel from "../../../../_models/product-api/res-model/get-products-res-model";
 
-interface Props { }
+interface Props {
+  products: GetProductsResModel[];
+  total: number;
+}
 
 const CartItem: React.FC<Props> = props => {
+  const { products, total } = props;
+
   return (
     <div className="total">
       <div className="row1">
@@ -16,31 +24,27 @@ const CartItem: React.FC<Props> = props => {
             <tbody>
               <tr>
                 <td>
-                    <p className="image">
-                      <img
-                        className="img-responsive"
-                        src="https://salt.tikicdn.com/cache/175x175/ts/product/3a/be/30/63989ba52dce745cc9d32f725b7d21f3.jpg"
-                      />
-                    </p>
-                </td>
-                <td>
-                    Giày nam, giày sneaker nam SP-283 - 40col-md-auto
-                </td>
-                <td>
-                   100000
-                </td>
-                <td>
-                    <Input
-                      type="number"
-                      name="item"
-                      className="number1"
-                      defaultValue="1"
+                  <p className="image">
+                    <img
+                      className="img-responsive"
+                      src="https://salt.tikicdn.com/cache/175x175/ts/product/3a/be/30/63989ba52dce745cc9d32f725b7d21f3.jpg"
                     />
+                  </p>
+                </td>
+                <td>Giày nam, giày sneaker nam SP-283 - 40col-md-auto</td>
+                <td>100000</td>
+                <td>
+                  <Input
+                    type="number"
+                    name="item"
+                    className="number1"
+                    defaultValue="1"
+                  />
                 </td>
                 <td>
-                    <button className="btn">
-                      <i className="fa fa-trash" />
-                    </button>  
+                  <button className="btn">
+                    <i className="fa fa-trash" />
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -54,7 +58,7 @@ const CartItem: React.FC<Props> = props => {
               <p className="title">Tạm tính:</p>
             </div>
             <div className="col-md-6">
-              <p className="price">8000000</p>
+              <p className="price">{currencyFormat(total)}</p>
             </div>
           </div>
           <div className="row total2 col-xs-auto">
@@ -62,7 +66,7 @@ const CartItem: React.FC<Props> = props => {
               <p className="title">Thành tiền:</p>
             </div>
             <div className="col-md-6">
-              <p className="price">150.000.000đ</p>
+              <p className="price">{currencyFormat(total)}</p>
             </div>
           </div>
         </form>

@@ -29,6 +29,8 @@ import BrandResModel from "../../../_models/product-api/res-model/brand-res-mode
 import LoginReqModel from "../../../_models/user-api/req-model/login-req-model";
 import { loginAsync } from "../../../_services/users-api/auth-service";
 import { AccountLoginResModel } from "../../../_models/user-api/res-model/login-res-model";
+import { orderSubject } from "../../../_services/order-api/order-service";
+import { Subscription } from "rxjs";
 
 interface Props extends RouteComponentProps {}
 
@@ -41,6 +43,8 @@ type States = {
   loginReqModel: LoginReqModel;
   isLoggedIn: boolean;
   user?: AccountLoginResModel | null;
+  totalCartItem: number;
+  subscriptions: Subscription[];
 };
 
 class NavBar extends Component<Props, States> {
@@ -60,13 +64,26 @@ class NavBar extends Component<Props, States> {
       loginReqModel: {
         password: "",
         userName: ""
-      }
+      },
+      totalCartItem: orderSubject.getTotalProducts(),
+      subscriptions: []
     };
   }
 
   componentDidMount() {
     this.getCategories();
     this.getBrands();
+
+    const subscription = orderSubject.getProduct().subscribe(p => {
+      const total = orderSubject.getTotalProducts();
+      this.setState({ totalCartItem: total });
+    });
+
+    this.setState({ subscriptions: [subscription] });
+  }
+
+  componentWillUnmount() {
+    this.state.subscriptions.forEach(s => s.unsubscribe());
   }
 
   // Call API region
@@ -189,7 +206,9 @@ class NavBar extends Component<Props, States> {
                     <NavItem>
                       <Link to="/cart">
                         <i className="fa fa-shopping-cart"></i>
-                        <span className="badge badge-info">0</span>
+                        <span className="badge badge-info">
+                          {this.state.totalCartItem}
+                        </span>
                       </Link>
                     </NavItem>
                   </Fragment>

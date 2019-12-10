@@ -14,7 +14,7 @@ const NewProducts: React.FC<Props> = props => {
   const { settings, products } = props;
 
   const productItems = products.map(p => (
-    <ProductItem product={p} key={p.slugName} />
+    <ProductItem product={p} key={p.slugName} isHomeProduct={true} />
   ));
 
   return (

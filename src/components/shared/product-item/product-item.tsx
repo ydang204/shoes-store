@@ -1,16 +1,20 @@
 import React from "react";
+import classnames from "classnames";
 
 import "./product-item.scss";
 import GetProductsResModel from "../../../_models/product-api/res-model/get-products-res-model";
 import { withRouter, RouteComponentProps } from "react-router";
 import { currencyFormat } from "../../../_cores/utils/helpers";
+import { orderSubject } from "../../../_services/order-api/order-service";
+import { OrderProduct } from "../../../_models/order-api/create-order-req-model";
 
 interface Props extends RouteComponentProps {
   product: GetProductsResModel;
+  isHomeProduct: boolean;
 }
 
 const ProductItem: React.FC<Props> = props => {
-  const { product, history } = props;
+  const { product, history, isHomeProduct } = props;
 
   const viewDetails = () => {
     history.push(`product-details/${product.slugName}`);
@@ -21,8 +25,20 @@ const ProductItem: React.FC<Props> = props => {
     return <img key={index} className={classname} src={img.imageUrl} />;
   });
 
+  const handlePurchase = () => {
+    const order: OrderProduct = {
+      id: product.id,
+      count: 1,
+      price: product.price
+    };
+    orderSubject.addProduct(order);
+    setTimeout(() => {
+      history.push("cart");
+    }, 200);
+  };
+
   return (
-    <div className="col-md-3 col-sm-6">
+    <div className={classnames({ "col-md-3 col-sm-6": !isHomeProduct })}>
       <div className="product-item">
         <div className="product-image">
           <a style={{ cursor: "pointer" }} onClick={viewDetails}>
@@ -37,7 +53,11 @@ const ProductItem: React.FC<Props> = props => {
               ></p>
             </li>
             <li>
-              <p className="fa fa-shopping-cart" title="Mua hàng"></p>
+              <p
+                className="fa fa-shopping-cart"
+                title="Mua hàng"
+                onClick={handlePurchase}
+              ></p>
             </li>
           </ul>
           <span className="product-like">

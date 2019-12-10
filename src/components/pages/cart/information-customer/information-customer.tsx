@@ -75,7 +75,7 @@ const InformationCustomer: React.FC = () => {
                     />
                   </span>
                   <div>
-                    <h6>Ví dụ MOMO</h6>
+                    <h6>Ví MoMo</h6>
                   </div>
                 </label>
               </div>

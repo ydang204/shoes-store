@@ -33,7 +33,7 @@ const MenuNav: React.FC<Props> = props => {
   const categoriesMenu = categories.map(c => {
     if (c.childCategories != null && c.childCategories.length > 0) {
       return (
-        <button className="btn menu-item">
+        <button className="btn menu-item" key={c.id}>
           <CategoryMenuDropdown
             category={c}
             handleCategoryMenuClick={handleCategoryMenuClick}
@@ -44,6 +44,7 @@ const MenuNav: React.FC<Props> = props => {
     return (
       <button
         className="btn menu-item"
+        key={c.id}
         onClick={() => handleCategoryMenuClick(c)}
       >
         {c.name}

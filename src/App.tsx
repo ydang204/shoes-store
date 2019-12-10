@@ -17,9 +17,20 @@ import {
 } from "./_cores/utils/firebase-messaging";
 import Checkout from "./components/pages/check-out/check-out";
 import Products from "./components/pages/products/products";
+import { OrderProduct } from "./_models/order-api/create-order-req-model";
 
-const App: React.FC = () => {
-  useEffect(() => {
+interface Props {}
+
+interface States {}
+
+class App extends React.Component<Props, States> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  componentDidMount() {
     const savedToken = localStorage.getItem("fcmToken");
     if (!savedToken) {
       askForPermissionToReceiveNotifications();
@@ -28,30 +39,32 @@ const App: React.FC = () => {
     messaging.onMessage(message => console.log(message));
 
     window.scrollTo(0, 0);
-  }, []);
+  }
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route>
-            <RouteLayout path="/checkout" component={Checkout} />
-            <RouteLayout path="/products" component={Products} />
-            <RouteLayout path="/login" component={Login} />
-            <RouteLayout path="/search" component={Search} />
-            <RouteLayout path="/cart" component={Cart} />
-            <RouteLayout
-              path="/product-details/:slug"
-              component={ProductDetails}
-            />
-            <RouteLayout path="/history" component={History} />
-            <RouteLayout path="/history/detail" component={OrderDetails} />
-            <RouteLayout exact path="/" component={Home} />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Switch>
+            <Route>
+              <RouteLayout path="/checkout" component={Checkout} />
+              <RouteLayout path="/products" component={Products} />
+              <RouteLayout path="/login" component={Login} />
+              <RouteLayout path="/search" component={Search} />
+              <RouteLayout path="/cart" component={Cart} />
+              <RouteLayout
+                path="/product-details/:slug"
+                component={ProductDetails}
+              />
+              <RouteLayout path="/history" component={History} />
+              <RouteLayout path="/history/detail" component={OrderDetails} />
+              <RouteLayout exact path="/" component={Home} />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
 
 export default App;
