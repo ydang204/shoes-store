@@ -5,11 +5,13 @@ import "./login.scss";
 import FacebookLogin from "react-facebook-login";
 
 import GoogleLogin from "react-google-login";
+import ExternalLoginReqModel from "../../../../_models/user-api/req-model/external-login-req-model";
 
 interface Props extends ModalProps {
   toggleRegisterModel: () => void;
   handleInputChange: (event: any) => void;
   handleSubmit: () => Promise<void>;
+  handleExternalLogin: (model: ExternalLoginReqModel) => Promise<void>;
 }
 
 const Login: React.FC<Props> = props => {
@@ -19,15 +21,28 @@ const Login: React.FC<Props> = props => {
     className,
     toggleRegisterModel,
     handleInputChange,
-    handleSubmit
+    handleSubmit,
+    handleExternalLogin
   } = props;
 
   const responseFacebook = (response: any) => {
     console.log(response);
+    const model: ExternalLoginReqModel = {
+      email: response.email,
+      externalId: response.id,
+      fullName: response.name
+    };
+    handleExternalLogin(model);
   };
 
   const responseGoogle = (response: any) => {
     console.log(response);
+    const model: ExternalLoginReqModel = {
+      email: response.profileObj.email,
+      externalId: response.profileObj.googleId,
+      fullName: response.profileObj.name
+    };
+    handleExternalLogin(model);
   };
 
   const facebookAppId = "999027390441007";
@@ -54,7 +69,6 @@ const Login: React.FC<Props> = props => {
                 />
                 <GoogleLogin
                   className="login-google"
-                  // icon={false}
                   clientId={googleClientId}
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}

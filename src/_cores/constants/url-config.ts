@@ -1,6 +1,6 @@
 const urls = {
-  development: "https://67e9151b.ngrok.io/",
-  production: "https://localhost:9000/"
+  development: "http://localhost:9000/",
+  production: "http://localhost:9000/"
 } as any;
 
 const API_URL = urls[process.env.NODE_ENV];

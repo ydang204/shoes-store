@@ -27,10 +27,14 @@ import CategoryResModel from "../../../_models/product-api/res-model/category-re
 import { getBrandsAsync } from "../../../_services/products-api/brand-service";
 import BrandResModel from "../../../_models/product-api/res-model/brand-res-model";
 import LoginReqModel from "../../../_models/user-api/req-model/login-req-model";
-import { loginAsync } from "../../../_services/users-api/auth-service";
+import {
+  loginAsync,
+  externalLoginAsync
+} from "../../../_services/users-api/auth-service";
 import { AccountLoginResModel } from "../../../_models/user-api/res-model/login-res-model";
 import { orderSubject } from "../../../_services/order-api/order-service";
 import { Subscription } from "rxjs";
+import ExternalLoginReqModel from "../../../_models/user-api/req-model/external-login-req-model";
 
 interface Props extends RouteComponentProps {}
 
@@ -106,6 +110,13 @@ class NavBar extends Component<Props, States> {
     this.setState({ isLoggedIn: true, isOpenLoginModal: false });
   };
 
+  handleExternalLogin = async (model: ExternalLoginReqModel) => {
+    const res = await externalLoginAsync(model);
+    localStorage.setItem("token", res.data.token);
+    localStorage.setItem("user", JSON.stringify(res.data.account));
+    this.setState({ isLoggedIn: true, isOpenLoginModal: false });
+  };
+
   // End call API region
 
   getCurrentUser(): AccountLoginResModel | null {
@@ -173,6 +184,7 @@ class NavBar extends Component<Props, States> {
                         toggleRegisterModel={this.toggleResgisterModal}
                         handleInputChange={this.handleLoginInputChange}
                         handleSubmit={this.handleLogin}
+                        handleExternalLogin={this.handleExternalLogin}
                       />
                       <Register
                         isOpen={this.state.isOpenRegisterModal}
