@@ -1,63 +1,39 @@
 .cart-container {
-  .row {
-    margin-top: 10px;
+  .total {
+    float: left;
 
-    .shopping-cart-item {
-      background: white;
+    .row1 {
+      width: 650px;
+      background-color: #fff;
+      margin-top: 10px;
+      height: auto;
+      margin-top: 10px;
+
+      .number1 {
+        width: 70px;
+        margin-left: 10px;
+      }
 
       .btn {
-        margin-left: 30px;
-      }
-
-      .name {
-        font-size: 16px;
-        margin-top: 20px;
-        font-weight: 400;
-        padding-top: 0;
-
-        .form-control {
-          height: calc(1em + 0.5rem + 1.5px);
-          width: 70px;
-        }
-      }
-
-      .btn-link {
-        margin-top: 15px;
+        font-size: 24px;
       }
     }
 
-    .list-info-price {
-      background: white;
-      margin-top: 10px;
-      margin-left: 1px;
+    .row2 {
+      width: 270px;
+      margin-top: auto;
+      float: right;
+      margin-right: 15px;
 
       .title {
-        font-size: 16px;
-        margin-top: 20px;
-        font-weight: 400;
-        padding-top: 0;
-      }
-
-      .price {
-        margin-top: 20px;
-        float: right;
-        font-weight: 400;
-      }
-    }
-
-    .total2 {
-      background: white;
-      margin-top: 1px;
-      margin-left: 1px;
-
-      .title {
+        color: #000;
         margin-top: 5px;
         display: inline-block;
       }
 
       .price {
         float: right;
-        color: #fe3834;
+        color: #f7ca55;
         font-size: 22px;
         font-weight: 400;
       }
@@ -66,42 +42,29 @@
     .btn-checkout {
       margin-top: 8px;
       padding: 10px;
-      width: 17em;
-    }
-
-    .btn-danger {
-      color: #fff;
-      background-color: #ff424e;
-      border-color: #ff424e;
+      width: 18em;
     }
   }
 }
 
-.shopping-cart-item {
-  background: white;
+.cart-items {
 
-  .btn {
-    margin-left: 30px;
-  }
 
-  .name {
-    font-size: 16px;
-    margin-top: 20px;
-    font-weight: 400;
-    padding-top: 0;
+  .cart-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    display: block;
 
-    .form-control {
-      height: calc(1em + 1rem + 1.5px);
-      width: 70px;
-      margin-top: -5px;
-    }
-  }
+    .image {
+      height: 150px;
+      width: 150px;
 
-  .btn {
-    margin-top: 15px;
-
-    .fa {
-      font-size: 20px;
+      img {
+        height: 150px;
+        width: 150px;
+        border-radius: 5px;
+      }
     }
   }
 }

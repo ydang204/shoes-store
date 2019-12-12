@@ -1,8 +1,8 @@
 import React from 'react';
-import './chitiet.scss';
+import './detail-history.scss';
 import { Input, Button } from "reactstrap";
 
-const Chitiet: React.FC = () => {
+const Detail: React.FC = () => {
     return(
         <div>
             <div className="tieude">
@@ -63,36 +63,35 @@ const Chitiet: React.FC = () => {
                         </div>
                     </div>
                     <div className="col-sm-3">
-            <form>
-              <div className="row list-info-price">
-                <div className="col-md-6">
-                  <p className="title">Tổng tiền hàng:</p>
-                </div>
-                <div className="col-md-4">
-                  <p className="price">8000000</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="title">Phí giao chuyển</p>
-                </div>
-                <div className="col-md-4">
-                  <p className="price">8000000</p>
-                </div>
-              </div>
-              <div className="row total2">
-                <div className="col-md-6">
-                  <p className="title">Tổng tiền:</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="price">150.000.000đ</p>
-                </div>
-              </div>
-              
-            </form>
-          </div>
-          </div>
+                        <form>
+                        <div className="row list-info-price">
+                            <div className="col-md-6">
+                            <p className="title">Tổng tiền hàng:</p>
+                            </div>
+                            <div className="col-md-4">
+                            <p className="price">8000000</p>
+                            </div>
+                            <div className="col-md-6">
+                            <p className="title">Phí giao chuyển</p>
+                            </div>
+                            <div className="col-md-4">
+                            <p className="price">8000000</p>
+                            </div>
+                        </div>
+                        <div className="row total2">
+                            <div className="col-md-6">
+                            <p className="title">Tổng tiền:</p>
+                            </div>
+                            <div className="col-md-6">
+                            <p className="price">150.000.000đ</p>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+        </div>
     );
 }
 
-export default Chitiet;
+export default Detail;

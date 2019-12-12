@@ -23,3 +23,8 @@ export const fileDownloader = (
   document.body.appendChild(link);
   link.click();
 };
+
+
+export const currencyFormat = (price: number) => {
+  return `${price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")}₫`;
+};

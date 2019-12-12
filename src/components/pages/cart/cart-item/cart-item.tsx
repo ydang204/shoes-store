@@ -4,45 +4,88 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 import "./cart-item.scss";
+import { currencyFormat } from "../../../../_cores/utils/helpers";
+import { OrderProduct } from "../../../../_models/order-api/req-model/create-order-req-model";
+import GetProductsResModel from "../../../../_models/product-api/res-model/get-products-res-model";
+import { RouteComponentProps, withRouter } from "react-router";
 
-interface Props { }
+interface Props extends RouteComponentProps {
+  products: GetProductsResModel[];
+  orderProducts: OrderProduct[];
+  total: number;
+}
 
 const CartItem: React.FC<Props> = props => {
-  return (
-    <div className="row shopping-cart-item">
-      <div className="col-md-3">
-        <p className="image">
-          <img
-            className="img-responsive"
-            src="https://salt.tikicdn.com/cache/175x175/ts/product/3a/be/30/63989ba52dce745cc9d32f725b7d21f3.jpg"
+  const { products, total, orderProducts, history } = props;
+
+  const viewDetails = (p: GetProductsResModel) => {
+    history.push(`product-details/${p.slugName}`);
+  };
+
+  const cartItems = products.map(p => {
+    const orderItem = orderProducts.find(i => i.id === p.id);
+    return (
+      <td key={p.id} className="cart-item">
+        <td>
+          <div
+            onClick={() => viewDetails(p)}
+            className="image"
+            // style={{
+            //   background: `url(${p.productImages[0].imageUrl}) center center / cover no-repeat;`
+            // }}
+          >
+            <img src={p.productImages[0].imageUrl} alt="" />
+          </div>
+        </td>
+        <td onClick={() => viewDetails(p)}>{p.name}</td>
+        <td>{currencyFormat(p.price)}</td>
+        <td>
+          <Input
+            type="number"
+            name="item"
+            className="number1"
+            defaultValue={!orderItem ? 1 : orderItem.count}
           />
-        </p>
+        </td>
+        <td>
+          <button className="btn">
+            <i className="fa fa-trash" />
+          </button>
+        </td>
+      </td>
+    );
+  });
+  return (
+    <div className="total cart-items">
+      <div className="row1">
+        <form>
+          <table>
+            <tbody>{cartItems}</tbody>
+          </table>
+        </form>
       </div>
-      <div className="col-md-5">
-        <p className="name">Giày nam, giày sneaker nam SP-283 - 40col-md-auto</p>
+      <div className="row2">
+        <form>
+          <div className="row list-info-price col-xs-auto">
+            <div className="col-md-6">
+              <p className="title">Tạm tính:</p>
+            </div>
+            <div className="col-md-6">
+              <p className="price">{currencyFormat(total)}</p>
+            </div>
+          </div>
+          <div className="row total2 col-xs-auto">
+            <div className="col-md-6">
+              <p className="title">Thành tiền:</p>
+            </div>
+            <div className="col-md-6">
+              <p className="price">{currencyFormat(total)}</p>
+            </div>
+          </div>
+        </form>
       </div>
-      <div className="col-md-auto">
-        <p className="name">100000</p>
-      </div>
-      <div className="name col-md-1">
-        <Input
-          type="number"
-          name="item"
-          id="exampleNumber"
-          defaultValue="1"
-        />
-      </div>
-      <div className="col-md-1">
-        <button className="btn">
-          <i className="fa fa-trash" />
-        </button>
-      </div>
-
     </div>
-
-
-
   );
 };
 
-export default CartItem;
+export default withRouter(CartItem);

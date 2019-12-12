@@ -5,25 +5,49 @@ import "./login.scss";
 import FacebookLogin from "react-facebook-login";
 
 import GoogleLogin from "react-google-login";
+import ExternalLoginReqModel from "../../../../_models/user-api/req-model/external-login-req-model";
 
 interface Props extends ModalProps {
   toggleRegisterModel: () => void;
+  handleInputChange: (event: any) => void;
+  handleSubmit: () => Promise<void>;
+  handleExternalLogin: (model: ExternalLoginReqModel) => Promise<void>;
 }
 
 const Login: React.FC<Props> = props => {
-  const { isOpen, toggleModal, className, toggleRegisterModel } = props;
+  const {
+    isOpen,
+    toggleModal,
+    className,
+    toggleRegisterModel,
+    handleInputChange,
+    handleSubmit,
+    handleExternalLogin
+  } = props;
 
   const responseFacebook = (response: any) => {
     console.log(response);
+    const model: ExternalLoginReqModel = {
+      email: response.email,
+      externalId: response.id,
+      fullName: response.name
+    };
+    handleExternalLogin(model);
   };
 
   const responseGoogle = (response: any) => {
     console.log(response);
+    const model: ExternalLoginReqModel = {
+      email: response.profileObj.email,
+      externalId: response.profileObj.googleId,
+      fullName: response.profileObj.name
+    };
+    handleExternalLogin(model);
   };
 
   const facebookAppId = "999027390441007";
   const googleClientId =
-    "1040263280986-ksk8a26hch9okcs2acpsf7e58t0d1bi0.apps.googleusercontent.com";
+    "333428677572-7un92vds8d1i0fmco88jb3tqrhbn9ale.apps.googleusercontent.com";
 
   return (
     <div>
@@ -43,25 +67,26 @@ const Login: React.FC<Props> = props => {
                   icon={<i className="fa fa-facebook" />}
                   textButton="&nbsp;&nbsp;Đăng nhập với Facebook"
                 />
-                {/* <GoogleLogin
+                <GoogleLogin
                   className="login-google"
-                  icon={false}
                   clientId={googleClientId}
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                 >
-                  <div className='google'>
+                  <div className="google">
                     <i className="fa fa-google-plus" />
-                    <span>&nbsp;Đăng nhập với Google</span> </div>
-                </GoogleLogin> */}
+                    <span>&nbsp;Đăng nhập với Google</span>{" "}
+                  </div>
+                </GoogleLogin>
               </div>
               <br />
               <div className="form-group">
                 <input
                   className="form-control"
-                  placeholder="Tên đăng nhập/ Email"
-                  name="email"
+                  placeholder="Tên đăng nhập"
+                  name="userName"
                   type="text"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className="form-group">
@@ -70,23 +95,22 @@ const Login: React.FC<Props> = props => {
                   placeholder="Mật khẩu"
                   name="password"
                   type="password"
+                  onChange={handleInputChange}
                 />
               </div>
               <input
-                className="btn btn-lg btn-success btn-block"
-                type="submit"
+                className="btn btn-lg btn-warning btn-block"
+                type="button"
                 value="Đăng nhập"
+                onClick={handleSubmit}
               ></input>
             </form>
             <hr></hr>
           </div>
-          <button
-            className="btn btn-dark"
-            style={{ width: "100%", textAlign: "center" }}
-            onClick={toggleRegisterModel}
-          >
-            Đăng ký tài khoản
-          </button>
+          Chưa có tài khoản?
+          <a href="#" onClick={toggleRegisterModel}>
+            &nbsp;Đăng ký ngay!
+          </a>
         </ModalBody>
       </Modal>
     </div>

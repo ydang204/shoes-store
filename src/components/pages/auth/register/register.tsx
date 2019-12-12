@@ -11,36 +11,64 @@ const Register: React.FC<Props> = props => {
   return (
     <div>
       <Modal isOpen={isOpen} toggle={toggleModal} className={className}>
-        <ModalHeader toggle={toggleModal}>Đăng ký thông tin</ModalHeader>
+        <ModalHeader toggle={toggleModal}>Đăng ký tài khoản</ModalHeader>
         <ModalBody>
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
                 <div className="form-group">
-                  <label htmlFor="fname">Tên đăng nhập/ Email:</label>
-                  <input type="text" className="form-control mt-2" placeholder="Tên đăng nhập/ Email" />
+                  <label htmlFor="fname">Tên đăng nhập</label>
+                  <input
+                    type="text"
+                    className="form-control mt-2"
+                    placeholder="Tên đăng nhập"
+                  />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password">Mật khẩu:</label>
-                  <input type="password" className="form-control mt-2" placeholder="Mật khẩu" />
+                  <label htmlFor="password">Mật khẩu</label>
+                  <input
+                    type="password"
+                    className="form-control mt-2"
+                    placeholder="Mật khẩu"
+                  />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="username">Họ và tên:</label>
-                  <input type="text" className="form-control mt-2" placeholder="Họ và tên" />
+                  <label htmlFor="username">Họ và tên</label>
+                  <input
+                    type="text"
+                    className="form-control mt-2"
+                    placeholder="Họ và tên"
+                  />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="address">Địa chỉ:</label>
-                  <input type="text" className="form-control mt-2" placeholder="Địa chỉ" />
+                  <label htmlFor="address">Địa chỉ</label>
+                  <input
+                    type="text"
+                    className="form-control mt-2"
+                    placeholder="Địa chỉ"
+                  />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="Email">Email:</label>
-                  <input type="email" className="form-control mt-2" placeholder="Địa chỉ email" />
+                  <label htmlFor="Email">Emai:</label>
+                  <input
+                    type="email"
+                    className="form-control mt-2"
+                    placeholder="Địa chỉ email"
+                  />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="number">Số điện thoại liên lạc:</label>
-                  <input type="text" className="form-control mt-2" placeholder="Số điện thoại" />
+                  <label htmlFor="number">Số điện thoại</label>
+                  <input
+                    type="text"
+                    className="form-control mt-2"
+                    placeholder="Số điện thoại"
+                  />
                 </div>
-                <input className="btn btn-lg btn-success btn-block" type="submit" value="Đăng ký"></input>
+                <input
+                  className="btn btn-lg btn-block btn-warning"
+                  type="submit"
+                  value="Đăng ký"
+                ></input>
               </div>
             </div>
           </div>
